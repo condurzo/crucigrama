@@ -4,6 +4,7 @@ using GoogleMobileAds.Api;
 
 public class BannerExample : MonoBehaviour {
 
+	//Pagina de google ads: https://developers.google.com/admob/android/games#importing_anysdk_into_your_game
 
 	private void RequestBanner()
 	{
