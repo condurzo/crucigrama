@@ -1,0 +1,10 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class progreso : MonoBehaviour {
+	public GUIText guitexto;
+	
+	void Update () {
+		guitexto.text=ZipTest.progreso.ToString();
+	}
+}
