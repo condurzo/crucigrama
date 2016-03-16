@@ -18,8 +18,9 @@ public class Parser : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Space)) {
 			//tenes uno para pedir especificamente uno o sino uno para pedir todos(no trae las palarbas ahI)
 			Crucigrama crumi = GetCrossword (0);
+			Debug.Log (crumi.id);
+			Debug.Log (crumi.nombre);
 			Debug.Log (crumi.estado);
-			Debug.Log (crumi.fecha);
 		}
 	}
 
