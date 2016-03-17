@@ -3,40 +3,63 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using System.IO;
+using System.Globalization;
 
 public class SplashDownloader : MonoBehaviour {
-	public UnityEngine.UI.Image SplashImagen;
-	public int width;
-	public int height;
+	public Image SplashImagen;
 
-	public string oldString;
-	public string newString;
+	public string url;
 
-	public List<Image> ListaSplash;
+	public List<Splash> ListaSplash;
+	private List<Sprite> sprites;
+	private int index;
 
 	//URL Coca: http://m.androidwallpapercentral.com/downloads/1080x1920-wallpaper-Android-CocaCola.jpg
 	// URL NIKE: http://cdn29.us1.fansshare.com/pictures/mobilewallpaper/nike-just-do-it-mobile-wallpaper-other-photo-mobile-wallpaper-2135420424.jpg
 
-	//LUCAS
-	IEnumerator Start() {
-		oldString = "http:\\/\\/www.malditosnerds.com\\/crucigramas\\/uploads\\/splash\\/2c2786f626226bdac3d0626061584605.jpg";
-		newString = oldString.Replace("\\","");
+	void Start(){
+		index = 0;
+		ListaSplash.Clear ();
+		ListaSplash = Parser.instance.GetAllSplash ();
+		sprites.Clear ();
+		for (int i = 0; i < ListaSplash.Count; i++) {
+			StartCoroutine (Guardar (ListaSplash [i].cover, ListaSplash [i].id_splash));
+		}
+		InicioShow ();
+	}
 
-		WWW www = new WWW(newString);
+	void InicioShow(){
+		if (index <= ListaSplash.Count) {
+			if (ListaSplash [index].estado == "1") {
+				SplashImagen.sprite = sprites [index];
+				index++;
+				Invoke ("InicioShow", float.Parse(ListaSplash [index].segundos, CultureInfo.InvariantCulture.NumberFormat));
+			}
+		} else {
+			Application.LoadLevel (1);
+		}
+	}
+
+	//Guarda las fotos
+	IEnumerator Guardar(string url,string nombre) {
+		url = url.Replace("\\","");
+		WWW www = new WWW(url);
 		yield return www;
 		Texture2D texture=www.texture;
 		byte[] bytes = texture.EncodeToJPG ();
-		File.WriteAllBytes (Application.dataPath + "/splash.jpg", bytes);
-		LoadImage();
+		File.WriteAllBytes (Application.dataPath + "/"+nombre+".jpg", bytes);
+		LoadImage (nombre);
 	}
 
-	public void LoadImage(){
-		byte[] bytes = File.ReadAllBytes(Application.dataPath + "/splash.jpg");
-		Texture2D texture = new Texture2D(1080, 1920, TextureFormat.RGB24, false);
+	//Carga las fotos
+	public void LoadImage(string nombre){
+		byte[] bytes = File.ReadAllBytes(Application.dataPath + "/"+nombre+".jpg");
+		Texture2D texture = new Texture2D (2, 2);
+		texture.LoadImage (bytes);
 		texture.filterMode = FilterMode.Trilinear;
-		texture.LoadImage(bytes);
-		Sprite sprite = Sprite.Create(texture, new Rect(0,0,width, height), new Vector2(0.5f,0.0f), 1.0f);
-		SplashImagen.GetComponent<UnityEngine.UI.Image> ().sprite = sprite;
+		Sprite sprite = Sprite.Create(texture, new Rect(0,0,texture.width, texture.height), new Vector2(0.5f,0.5f));
+		SplashImagen.sprite = sprite;
+		sprites.Add (sprite);
 	}
 
 
