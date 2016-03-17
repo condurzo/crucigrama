@@ -9,14 +9,20 @@ public class SplashDownloader : MonoBehaviour {
 	public int width;
 	public int height;
 
+	public string oldString;
+	public string newString;
+
 	public List<Image> ListaSplash;
 
-
+	//URL Coca: http://m.androidwallpapercentral.com/downloads/1080x1920-wallpaper-Android-CocaCola.jpg
 	// URL NIKE: http://cdn29.us1.fansshare.com/pictures/mobilewallpaper/nike-just-do-it-mobile-wallpaper-other-photo-mobile-wallpaper-2135420424.jpg
 
 	//LUCAS
 	IEnumerator Start() {
-		WWW www = new WWW("http://m.androidwallpapercentral.com/downloads/1080x1920-wallpaper-Android-CocaCola.jpg");
+		oldString = "http:\\/\\/www.malditosnerds.com\\/crucigramas\\/uploads\\/splash\\/2c2786f626226bdac3d0626061584605.jpg";
+		newString = oldString.Replace("\\","");
+
+		WWW www = new WWW(newString);
 		yield return www;
 		Texture2D texture=www.texture;
 		byte[] bytes = texture.EncodeToJPG ();
