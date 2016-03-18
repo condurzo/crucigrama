@@ -12,11 +12,12 @@ public class Parser : MonoBehaviour {
 	private JsonData jsondatasplash;
 	public static Parser instance;
 
-	void Start(){
+	void Awake(){
+		DontDestroyOnLoad (this.transform);
 		if (instance == null) {
 			instance = this;
 		}
-		DontDestroyOnLoad (this.transform);
+
 		//cargamos todos los json y los guardamos para no tener que ir cambiando
 		LoadJsons ();
 	}
@@ -30,11 +31,16 @@ public class Parser : MonoBehaviour {
 		WWW www = new WWW(urlcrucigramas);
 		yield return www;
 		jsoncrucigramas = www.text;
-		jsondatacrucigramas = JsonMapper.ToObject (jsoncrucigramas);
+		int first = jsoncrucigramas.IndexOf ('>');
+		int last=jsoncrucigramas.LastIndexOf('<');
+		string sub = jsoncrucigramas.Substring (first+1,(last-first)-1);
+		Debug.Log (sub);
+		jsondatacrucigramas = JsonMapper.ToObject (sub);
 		//Splash
 		www = new WWW(urlsplash);
 		yield return www;
 		jsonsplash = www.text;
+		Debug.Log (jsonsplash);
 		jsondatasplash = JsonMapper.ToObject (jsonsplash);
 	}
 
@@ -50,8 +56,9 @@ public class Parser : MonoBehaviour {
 	}
 
 	public List<Splash> GetAllSplash(){
+		Debug.Log ("asd");
 		List<Splash> splash =new List<Splash>();
-		for (int i = 0; i < jsondatasplash ["splash"].Count; i++) {
+		for (int i = 0; i < (jsondatasplash ["splash"]).Count; i++) {
 			Splash spla = new Splash ();
 			spla.id_splash = jsondatasplash["splash"][i]["id_splash"].ToString();
 			spla.posicion = jsondatasplash["splash"][i]["posicion"].ToString();
@@ -70,9 +77,6 @@ public class Parser : MonoBehaviour {
 		cru.estado = jsondatacrucigramas ["crucigramas"] [0] ["estado"].ToString ();
 		cru.fecha = jsondatacrucigramas ["crucigramas"] [num] ["fecha"].ToString ();
 		List<Palabra> palabras = new List<Palabra> ();
-
-		//ACA COMO NO ES UN ARRAY NO PUEDO ITERAR
-
 		for (int j = 0; j < jsondatacrucigramas ["crucigramas"] [num] ["palabras"].Count; j++) {
 			Palabra pal = new Palabra ();
 			pal.id=jsondatacrucigramas ["crucigramas"] [num] ["palabras"][j]["id"].ToString ();

@@ -10,14 +10,18 @@ public class SplashDownloader : MonoBehaviour {
 
 	public string url;
 
-	public List<Splash> ListaSplash;
-	private List<Sprite> sprites;
+	public List<Splash> ListaSplash = new List<Splash> ();
+	private List<Sprite> sprites = new List<Sprite> ();
 	private int index;
 
 	//URL Coca: http://m.androidwallpapercentral.com/downloads/1080x1920-wallpaper-Android-CocaCola.jpg
 	// URL NIKE: http://cdn29.us1.fansshare.com/pictures/mobilewallpaper/nike-just-do-it-mobile-wallpaper-other-photo-mobile-wallpaper-2135420424.jpg
 
 	void Start(){
+		Invoke ("Empezar",2);
+	}
+
+	void Empezar(){
 		index = 0;
 		ListaSplash.Clear ();
 		ListaSplash = Parser.instance.GetAllSplash ();
@@ -25,18 +29,22 @@ public class SplashDownloader : MonoBehaviour {
 		for (int i = 0; i < ListaSplash.Count; i++) {
 			StartCoroutine (Guardar (ListaSplash [i].cover, ListaSplash [i].id_splash));
 		}
-		InicioShow ();
+		Invoke ("InicioShow", 2);
 	}
 
+
+
 	void InicioShow(){
-		if (index <= ListaSplash.Count) {
+		if (index < ListaSplash.Count) {
 			if (ListaSplash [index].estado == "1") {
 				SplashImagen.sprite = sprites [index];
 				index++;
-				Invoke ("InicioShow", float.Parse(ListaSplash [index].segundos, CultureInfo.InvariantCulture.NumberFormat));
+				if (index < ListaSplash.Count) {
+					Invoke ("InicioShow", float.Parse (ListaSplash [index].segundos, CultureInfo.InvariantCulture.NumberFormat));
+				}  else {
+					Application.LoadLevel (1);
+				}
 			}
-		} else {
-			Application.LoadLevel (1);
 		}
 	}
 
