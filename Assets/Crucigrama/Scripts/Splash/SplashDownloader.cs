@@ -18,10 +18,11 @@ public class SplashDownloader : MonoBehaviour {
 	// URL NIKE: http://cdn29.us1.fansshare.com/pictures/mobilewallpaper/nike-just-do-it-mobile-wallpaper-other-photo-mobile-wallpaper-2135420424.jpg
 
 	void Start(){
-		Invoke ("Empezar",2);
+		Invoke ("Empezar",3);
 	}
 
 	void Empezar(){
+		SplashImagen.gameObject.SetActive(true);
 		index = 0;
 		ListaSplash.Clear ();
 		ListaSplash = Parser.instance.GetAllSplash ();

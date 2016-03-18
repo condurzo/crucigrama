@@ -80,7 +80,7 @@ public class Parser : MonoBehaviour {
 		for (int j = 0; j < jsondatacrucigramas ["crucigramas"] [num] ["palabras"].Count; j++) {
 			Palabra pal = new Palabra ();
 			pal.id=jsondatacrucigramas ["crucigramas"] [num] ["palabras"][j]["id"].ToString ();
-			pal.def=jsondatacrucigramas ["crucigramas"] [num] ["palabras"][j]["nombre"].ToString ();
+			pal.nom=jsondatacrucigramas ["crucigramas"] [num] ["palabras"][j]["nom"].ToString ();
 			pal.def=jsondatacrucigramas ["crucigramas"] [num] ["palabras"][j]["def"].ToString ();
 			pal.coordx=jsondatacrucigramas ["crucigramas"] [num] ["palabras"][j]["coordx"].ToString ();
 			pal.coordy=jsondatacrucigramas ["crucigramas"] [num] ["palabras"][j]["coordy"].ToString ();
