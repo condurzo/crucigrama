@@ -18,6 +18,9 @@ public class CrucigramasManager : MonoBehaviour {
 				CruciPrefab.GetComponentInChildren<Text>().text = ListaCruci [i].nombre;
 				GameObject childObject = Instantiate(CruciPrefab) as GameObject;
 				childObject.transform.parent = gameObject.transform;
+				Crucigrama cruci=childObject.GetComponent<Crucigrama>();
+				cruci.id=ListaCruci[i].id;
+				cruci.nombre=ListaCruci[i].nombre;
 			}
 		}
 	}
