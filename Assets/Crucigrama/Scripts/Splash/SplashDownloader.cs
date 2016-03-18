@@ -12,17 +12,18 @@ public class SplashDownloader : MonoBehaviour {
 
 	public List<Splash> ListaSplash = new List<Splash> ();
 	private List<Sprite> sprites = new List<Sprite> ();
-	private int index;
+	public int index;
 
 	//URL Coca: http://m.androidwallpapercentral.com/downloads/1080x1920-wallpaper-Android-CocaCola.jpg
 	// URL NIKE: http://cdn29.us1.fansshare.com/pictures/mobilewallpaper/nike-just-do-it-mobile-wallpaper-other-photo-mobile-wallpaper-2135420424.jpg
 
 	void Start(){
-		Invoke ("Empezar",3);
+		Invoke ("Empezar",2);
+
+
 	}
 
 	void Empezar(){
-		SplashImagen.gameObject.SetActive(true);
 		index = 0;
 		ListaSplash.Clear ();
 		ListaSplash = Parser.instance.GetAllSplash ();
@@ -31,6 +32,7 @@ public class SplashDownloader : MonoBehaviour {
 			StartCoroutine (Guardar (ListaSplash [i].cover, ListaSplash [i].id_splash));
 		}
 		Invoke ("InicioShow", 2);
+
 	}
 
 
@@ -42,7 +44,7 @@ public class SplashDownloader : MonoBehaviour {
 				index++;
 				if (index < ListaSplash.Count) {
 					Invoke ("InicioShow", float.Parse (ListaSplash [index].segundos, CultureInfo.InvariantCulture.NumberFormat));
-				}  else {
+				} else {
 					Application.LoadLevel (1);
 				}
 			}
@@ -56,13 +58,14 @@ public class SplashDownloader : MonoBehaviour {
 		yield return www;
 		Texture2D texture=www.texture;
 		byte[] bytes = texture.EncodeToJPG ();
-		File.WriteAllBytes (Application.dataPath + "/"+nombre+".jpg", bytes);
+		File.WriteAllBytes (Application.persistentDataPath + "/"+nombre+".jpg", bytes);
 		LoadImage (nombre);
+		SplashImagen.gameObject.SetActive(true);
 	}
 
 	//Carga las fotos
 	public void LoadImage(string nombre){
-		byte[] bytes = File.ReadAllBytes(Application.dataPath + "/"+nombre+".jpg");
+		byte[] bytes = File.ReadAllBytes(Application.persistentDataPath + "/"+nombre+".jpg");
 		Texture2D texture = new Texture2D (2, 2);
 		texture.LoadImage (bytes);
 		texture.filterMode = FilterMode.Trilinear;

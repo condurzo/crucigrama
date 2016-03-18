@@ -16,4 +16,7 @@ public class Display : MonoBehaviour {
 		}
 		Screens[num].SetActive (true);
 	}
+
+
+
 }
