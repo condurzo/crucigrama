@@ -2,7 +2,7 @@
 using System.Collections;
 
 [ExecuteInEditMode]
-public class Crucigrama : MonoBehaviour {
+public class Crucigrama{
 	public string id;
 	public string nombre;
 	public string estado;

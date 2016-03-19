@@ -7,9 +7,7 @@ using System.Globalization;
 
 public class SplashDownloader : MonoBehaviour {
 	public Image SplashImagen;
-
 	public string url;
-
 	public List<Splash> ListaSplash = new List<Splash> ();
 	private List<Sprite> sprites = new List<Sprite> ();
 	public int index;
@@ -19,8 +17,6 @@ public class SplashDownloader : MonoBehaviour {
 
 	void Start(){
 		Invoke ("Empezar",2);
-
-
 	}
 
 	void Empezar(){
@@ -29,15 +25,20 @@ public class SplashDownloader : MonoBehaviour {
 		ListaSplash = Parser.instance.GetAllSplash ();
 		sprites.Clear ();
 		for (int i = 0; i < ListaSplash.Count; i++) {
-			StartCoroutine (Guardar (ListaSplash [i].cover, ListaSplash [i].id_splash));
+			if (!File.Exists (Application.persistentDataPath + "/" + ListaSplash [i].id_splash + ".jpg")) {
+				StartCoroutine (Guardar (ListaSplash [i].cover, ListaSplash [i].id_splash));
+			} else {
+				LoadImage (ListaSplash [i].id_splash);
+			}
 		}
 		Invoke ("InicioShow", 2);
-
 	}
 
 
 
 	void InicioShow(){
+		SplashImagen.gameObject.SetActive(true);
+		Debug.Log (Time.time);
 		if (index < ListaSplash.Count) {
 			if (ListaSplash [index].estado == "1") {
 				SplashImagen.sprite = sprites [index];
@@ -45,14 +46,19 @@ public class SplashDownloader : MonoBehaviour {
 				if (index < ListaSplash.Count) {
 					Invoke ("InicioShow", float.Parse (ListaSplash [index].segundos, CultureInfo.InvariantCulture.NumberFormat));
 				} else {
-					Application.LoadLevel (1);
+					Invoke ("PasarEscena", float.Parse (ListaSplash [ListaSplash.Count-1].segundos, CultureInfo.InvariantCulture.NumberFormat));
 				}
 			}
 		}
 	}
 
+	void PasarEscena(){
+		Application.LoadLevel (1);
+	}
+
 	//Guarda las fotos
 	IEnumerator Guardar(string url,string nombre) {
+		Debug.Log ("guardo " + nombre);
 		url = url.Replace("\\","");
 		WWW www = new WWW(url);
 		yield return www;
@@ -60,7 +66,6 @@ public class SplashDownloader : MonoBehaviour {
 		byte[] bytes = texture.EncodeToJPG ();
 		File.WriteAllBytes (Application.persistentDataPath + "/"+nombre+".jpg", bytes);
 		LoadImage (nombre);
-		SplashImagen.gameObject.SetActive(true);
 	}
 
 	//Carga las fotos
@@ -70,9 +75,6 @@ public class SplashDownloader : MonoBehaviour {
 		texture.LoadImage (bytes);
 		texture.filterMode = FilterMode.Trilinear;
 		Sprite sprite = Sprite.Create(texture, new Rect(0,0,texture.width, texture.height), new Vector2(0.5f,0.5f));
-		SplashImagen.sprite = sprite;
-		sprites.Add (sprite);
+		sprites.Add(sprite);
 	}
-
-
 }

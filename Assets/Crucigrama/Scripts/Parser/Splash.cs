@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Splash : MonoBehaviour {
+[System.Serializable]
+public class Splash {
 	public string id_splash;
 	public string posicion;
 	public string segundos;
