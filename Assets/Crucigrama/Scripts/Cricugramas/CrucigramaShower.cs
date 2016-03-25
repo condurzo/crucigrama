@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class CrucigramaShower : MonoBehaviour {
 	public Button boton;
+	public Image imagen;
 	public Text Nombre;
 	public Text palabras;
 	public Text estado;

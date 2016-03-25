@@ -7,6 +7,7 @@ public class CrucigramasManager : MonoBehaviour {
 
 	public List<Crucigrama> ListaCruci = new List<Crucigrama> ();
 	public GameObject CruciPrefab;
+	public Sprite sp0;
 
 	void Start(){
 		Invoke ("Empezar",2);
@@ -31,6 +32,12 @@ public class CrucigramasManager : MonoBehaviour {
 			}
 			crucishow.id = i;
 			crucishow.estado.text = estado;
+			if (i == 0) {
+				LayoutElement lay = go.GetComponent<LayoutElement> ();
+				lay.preferredHeight = lay.preferredHeight * 2;
+				crucishow.imagen.sprite = sp0;
+			}
 		}
+
 	}
 }
