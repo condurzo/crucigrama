@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CartasSetear : MonoBehaviour {
+public class BorrarCartasSetear : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -26,7 +26,7 @@ public class CartasSetear : MonoBehaviour {
         PlayerPrefs.SetInt("Carta18", 1);
         PlayerPrefs.SetInt("Carta19", 1);
         PlayerPrefs.SetInt("Carta20", 1);
-        PlayerPrefs.SetInt("Carta21", 1);
+        PlayerPrefs.SetInt("Carta21", 0);
     }
 	
 	// Update is called once per frame

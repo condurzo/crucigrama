@@ -9,6 +9,8 @@ public class FBscript : MonoBehaviour{
 
     public GameObject DialogUsername;
     public GameObject DialogId;
+    public string UsserFB;
+    public string idFB;
     public string AppLinkURL { get; set; }
 
 
@@ -39,6 +41,16 @@ public class FBscript : MonoBehaviour{
         permissions.Add("public_profile");
 
         FB.LogInWithReadPermissions(permissions, AuthCallBack);
+        
+    }
+
+    public void FBLogout(){
+        CallFBLogout();
+    }
+
+    private void CallFBLogout(){
+        FB.LogOut();
+        Debug.Log("Cerre Sesion");
     }
 
     void AuthCallBack(IResult result){
@@ -58,26 +70,25 @@ public class FBscript : MonoBehaviour{
     void DealWithFBMenus(bool isLoggedIn){
 
         if (isLoggedIn){
-            FB.API("/me?fields=first_name", HttpMethod.GET, DisplayUsername);
-            FB.API("/me?fields=id", HttpMethod.GET, DisplayId);
+            FB.API("/me?fields=id,name", HttpMethod.GET, DisplayUsername);
             //FB.API("/me/picture?type=square&height=128&width=128", HttpMethod.GET, DisplayProfilePic);
         }else{
           
         }
     }
-
-    public void DisplayId(IResult result){
-        Text UserId = DialogId.GetComponent<Text>();
-        if(result.Error == null){
-            UserId.text = "" + result.ResultDictionary["id"];
-        }
-    }
-
+    
     public void DisplayUsername(IResult result){
         Text UserName = DialogUsername.GetComponent<Text>();
+        Text UserId = DialogId.GetComponent<Text>();
         if (result.Error == null){
-            UserName.text = "" + result.ResultDictionary["first_name"];
-        }else {
+            UserName.text = "" + result.ResultDictionary["name"];
+            UserId.text = "" + result.ResultDictionary["id"];
+            idFB = UserId.text;
+            UsserFB = UserName.text;
+            UsserFB = UsserFB.Replace(" ", "-");
+            Parser.instance.RegistrarUsuario(idFB, UsserFB, "");
+        }
+        else {
             Debug.Log(result.Error);
         }
     }

@@ -93,6 +93,7 @@ public class Parser : MonoBehaviour {
 		string url = "http://www.malditosnerds.com/crucigramas/front/jugador_registrar.php?idsocial_jugador="+idsocial_jugador+"&nom_jugador="+nom_jugador+"&email_jugador="+email_jugador+"&pass_jugador="+pass_jugador+"&estado_jugador="+estado_jugador+"&tipo_jugador="+tipo_jugador+"&fecha_jugador="+fecha_jugador+"&pendiente_asignar="+pendiente_asignar;
 		WWW www = new WWW (url);
 		Debug.Log ("registre usuario: " + nom_jugador);
+        Debug.Log("URL " + url);
 	}
 
 	public List<Crucigrama> GetAllCrosswords(){
