@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
 using LitJson;
+using System;
 
 public class Parser : MonoBehaviour {
 	private string urlsplash="http://www.malditosnerds.com/crucigramas/front/splash.php";
@@ -87,7 +88,12 @@ public class Parser : MonoBehaviour {
 		return cru;
 	}
 
-
+	public void RegistrarUsuario(string idsocial_jugador,string nom_jugador,string email_jugador,string pass_jugador="1",string estado_jugador="1",string tipo_jugador="1",string pendiente_asignar="1"){
+		string fecha_jugador=DateTime.Now.ToString("s");
+		string url = "http://www.malditosnerds.com/crucigramas/front/jugador_registrar.php?idsocial_jugador="+idsocial_jugador+"&nom_jugador="+nom_jugador+"&email_jugador="+email_jugador+"&pass_jugador="+pass_jugador+"&estado_jugador="+estado_jugador+"&tipo_jugador="+tipo_jugador+"&fecha_jugador="+fecha_jugador+"&pendiente_asignar="+pendiente_asignar;
+		WWW www = new WWW (url);
+		Debug.Log ("registre usuario: " + nom_jugador);
+	}
 
 	public List<Crucigrama> GetAllCrosswords(){
 		List<Crucigrama> crucis=new List<Crucigrama>();
@@ -113,12 +119,24 @@ public class Parser : MonoBehaviour {
 			cru.palabras = palabras.ToArray();
 			crucis.Add (cru);
 		}
+		crucis.Sort ((IComparer<Crucigrama>)new CrosswordSort ());
 		return crucis;
 	}
 }
 
+
 public class SplashSort : IComparer<Splash>{
 	int IComparer<Splash>.Compare(Splash a, Splash b) {
 		return a.posicion.CompareTo(b.posicion);
+	}
+}
+
+public class CrosswordSort : IComparer<Crucigrama>{
+	int IComparer<Crucigrama>.Compare(Crucigrama a, Crucigrama b) {
+		int aid = 0;
+		bool ab=int.TryParse (a.id,out aid);
+		int bid = 0;
+		bool bb=int.TryParse (b.id,out bid);
+		return bid.CompareTo(aid);
 	}
 }
