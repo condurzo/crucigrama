@@ -32,12 +32,12 @@ public class CrucigramasManager : MonoBehaviour {
 			}
 			crucishow.id = i;
 			crucishow.estado.text = estado;
+			LayoutElement lay = go.GetComponent<LayoutElement> ();
+			lay.preferredHeight = Screen.height / 10;
 			if (i == 0) {
-				LayoutElement lay = go.GetComponent<LayoutElement> ();
 				lay.preferredHeight = lay.preferredHeight * 2;
 				crucishow.imagen.sprite = sp0;
 			}
 		}
-
 	}
 }
