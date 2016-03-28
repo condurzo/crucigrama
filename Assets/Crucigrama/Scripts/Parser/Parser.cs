@@ -28,9 +28,15 @@ public class Parser : MonoBehaviour {
 		WWW www = new WWW(urlcrucigramas);
 		yield return www;
 		jsoncrucigramas = www.text;
+		Debug.Log (jsoncrucigramas);
 		int first = jsoncrucigramas.IndexOf ('>');
 		int last=jsoncrucigramas.LastIndexOf('<');
-		string sub = jsoncrucigramas.Substring (first+1,(last-first)-1);
+		string sub = "";
+		if ((first >= 0) && (last >= 0)) {
+			sub = jsoncrucigramas.Substring (first + 1, (last - first) - 1);
+		} else {
+				sub=jsoncrucigramas;
+		}
 		jsondatacrucigramas = JsonMapper.ToObject (sub);
 		//Splash
 		www = new WWW(urlsplash);
