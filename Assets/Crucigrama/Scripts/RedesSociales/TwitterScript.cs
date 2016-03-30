@@ -81,10 +81,10 @@ public class TwitterScript : Prime31.MonoBehaviourGUI{
         _UserName.loginDidSucceedEvent(username);
         UsserTwitter = username;
         UsserTwitter = UsserTwitter.Replace(" ", "-");
-        Parser.instance.RegistrarUsuario("290316", UsserTwitter, "");
+		Parser.instance.RegistrarUsuario("290316", UsserTwitter, "");
     }
 
-    
+
 
     public void IsLoggedInTwitter(){
         var isLoggedIn = TwitterAndroid.isLoggedIn();
