@@ -32,12 +32,20 @@ public class Managerhome : MonoBehaviour {
 			frases.Add (Cruciactual.palabras [i].def);
 		}
 		index = 0;
-		frasetext.text = frases [index];
-		string pal = "Palabras: ";
-		for (int i = 0; i < Cruciactual.palabras.Length; i++) {
-			pal += ";" + Cruciactual.palabras [i].nom;
+		if(frases.Count>0){
+		if(frases.Count>=index){
+			Debug.Log(frases.Count);
+			Debug.Log(index);
+			frasetext.text = frases [index];
+			string pal = "Palabras: ";
+			for (int i = 0; i < Cruciactual.palabras.Length; i++) {
+				pal += ";" + Cruciactual.palabras [i].nom;
+			}
+			palabrastext.text = pal;
 		}
-		palabrastext.text = pal;
+		}else{
+			palabrastext.text="Sin Palabras";
+		}
 	}
 
 	public void Siguiente(){

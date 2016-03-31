@@ -8,10 +8,16 @@ using System;
 public class Parser : MonoBehaviour {
 	private string urlsplash="http://www.malditosnerds.com/crucigramas/front/splash.php";
 	private string urlcrucigramas="http://www.malditosnerds.com/crucigramas/front/crucigramas.php";
+	private string urlpremios="http://malditosnerds.com/crucigramas/front/premios.php";
+	private string urltickets="http://malditosnerds.com/crucigramas/front/tickets.php";
 	private string jsoncrucigramas;
 	public string jsonsplash;
+	public string jsonpremios;
+	public string jsontickets;
 	private JsonData jsondatacrucigramas;
 	private JsonData jsondatasplash;
+	private JsonData jsondatapremios;
+	private JsonData jsondatatickets;
 	public static Parser instance;
 
 	void Awake(){
@@ -23,12 +29,20 @@ public class Parser : MonoBehaviour {
 		StartCoroutine ("GetJsons");
 	}
 
+	void Update(){
+		if(Input.GetKeyUp(KeyCode.A)){
+		List<Ticket> premiosfake=Tickets();
+		Debug.Log(premiosfake[0].id);
+		Debug.Log(premiosfake[0].texto);
+		Debug.Log(premiosfake[0].posicion);
+		}
+	}
+
 	IEnumerator GetJsons(){
 		//Crucigramas
 		WWW www = new WWW(urlcrucigramas);
 		yield return www;
 		jsoncrucigramas = www.text;
-		Debug.Log (jsoncrucigramas);
 		int first = jsoncrucigramas.IndexOf ('>');
 		int last=jsoncrucigramas.LastIndexOf('<');
 		string sub = "";
@@ -42,7 +56,34 @@ public class Parser : MonoBehaviour {
 		www = new WWW(urlsplash);
 		yield return www;
 		jsonsplash = www.text;
+		Debug.Log(jsonsplash);
 		jsondatasplash = JsonMapper.ToObject (jsonsplash);
+		//premios
+		www = new WWW(urlpremios);
+		yield return www;
+		jsonpremios = www.text;
+		first = jsonpremios.IndexOf ('>');
+		last=jsonpremios.LastIndexOf('<');
+		sub = "";
+		if ((first >= 0) && (last >= 0)) {
+			sub = jsonpremios.Substring (first + 1, (last - first) - 1);
+		} else {
+			sub=jsonpremios;
+		}
+		jsondatapremios = JsonMapper.ToObject (sub);
+		//Tickets
+		www = new WWW(urltickets);
+		yield return www;
+		jsontickets = www.text;
+		first = jsontickets.IndexOf ('>');
+		last=jsontickets.LastIndexOf('<');
+		sub = "";
+		if ((first >= 0) && (last >= 0)) {
+			sub = jsontickets.Substring (first + 1, (last - first) - 1);
+		} else {
+			sub=jsontickets;
+		}
+		jsondatatickets = JsonMapper.ToObject (sub);
 	}
 
 
@@ -69,6 +110,33 @@ public class Parser : MonoBehaviour {
 		}
 		splash.Sort ((IComparer<Splash>)new SplashSort ());
 		return splash;
+	}
+
+	public List<Premio> Premios(){
+		List<Premio> premi=new List<Premio>();
+		for (int i = 0; i < jsondatapremios ["premios"].Count; i++) {
+			Premio pre = new Premio ();
+			pre.id = jsondatapremios ["premios"] [i] ["id"].ToString ();
+			pre.nombre = jsondatapremios ["premios"] [i] ["nombre"].ToString ();
+			pre.url=jsondatapremios ["premios"] [i] ["imagen"].ToString ();
+			premi.Add (pre);
+		}
+		return premi;
+	}
+
+	public List<Ticket> Tickets(){
+		List<Ticket> ticke=new List<Ticket>();
+		for (int i = 0; i < jsondatatickets ["tickets"].Count; i++) {
+			Ticket tic = new Ticket ();
+			tic.id = jsondatatickets ["tickets"] [i] ["id_ticket"].ToString ();
+			tic.nombre = jsondatatickets ["tickets"] [i] ["nombre"].ToString ();
+			tic.texto = jsondatatickets ["tickets"] [i] ["texto"].ToString ();
+			tic.posicion = jsondatatickets ["tickets"] [i] ["posicion"].ToString ();
+			tic.ubicacion = jsondatatickets ["tickets"] [i] ["ubicacion"].ToString ();
+			tic.estado = jsondatatickets ["tickets"] [i] ["estado"].ToString ();
+			ticke.Add (tic);
+		}
+		return ticke;
 	}
 
 	public Crucigrama GetCrossword(int num){
