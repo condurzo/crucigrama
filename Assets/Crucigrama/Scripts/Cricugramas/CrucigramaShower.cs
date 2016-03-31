@@ -15,7 +15,7 @@ public class CrucigramaShower : MonoBehaviour {
 	}
 
 	public void Resolver(){
-		Managerhome.instance.CargarCruci (id);
+		Managerhome.instance.CargarCruci (id-1);
 	}
 
 	public void Prender(){

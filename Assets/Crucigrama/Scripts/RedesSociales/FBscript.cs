@@ -84,9 +84,7 @@ public class FBscript : MonoBehaviour{
             UserName.text = "" + result.ResultDictionary["name"];
             UserId.text = "" + result.ResultDictionary["id"];
             idFB = UserId.text;
-            UsserFB = UserName.text;
-            UsserFB = UsserFB.Replace(" ", "-");
-            Parser.instance.RegistrarUsuario(idFB, UsserFB, "");
+            Parser.instance.RegistrarUsuario(idFB, UserName.text, "");
         }
         else {
             Debug.Log(result.Error);

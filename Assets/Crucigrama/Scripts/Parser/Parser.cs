@@ -96,6 +96,7 @@ public class Parser : MonoBehaviour {
 
 	public void RegistrarUsuario(string idsocial_jugador,string nom_jugador,string email_jugador,string pass_jugador="1",string estado_jugador="1",string tipo_jugador="1",string pendiente_asignar="1"){
 		string fecha_jugador=DateTime.Now.ToString("s");
+		nom_jugador=nom_jugador.Replace(" ","-");
 		string url = "http://www.malditosnerds.com/crucigramas/front/jugador_registrar.php?idsocial_jugador="+idsocial_jugador+"&nom_jugador="+nom_jugador+"&email_jugador="+email_jugador+"&pass_jugador="+pass_jugador+"&estado_jugador="+estado_jugador+"&tipo_jugador="+tipo_jugador+"&fecha_jugador="+fecha_jugador+"&pendiente_asignar="+pendiente_asignar;
 		WWW www = new WWW (url);
 		Debug.Log ("registre usuario: " + nom_jugador);
