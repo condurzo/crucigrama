@@ -13,8 +13,8 @@ public class TicketManager : MonoBehaviour {
 	private float cont;
 	private int index;
 	private bool startt;
-	private string grandtextolong;
-
+	public string grandtextolong;
+	//&ntilde;       &aacute;       &ntilde;       &aacute;       &ntilde;       &aacute;       &ntilde;       &aacute;       &ntilde;       &aacute;       &ntilde;       &aacute;       &ntilde;       &aacute;       
 
 	void Start () {
 		startt=false;
@@ -25,6 +25,8 @@ public class TicketManager : MonoBehaviour {
 		for (int i = 0; i < ListaTicket.Count; i++) {
 			grandtexto+=ListaTicket[i].texto+"       ";
 		}
+		grandtexto=grandtexto.Replace("&ntilde;","ñ");
+		grandtexto=grandtexto.Replace("&aacute;","á");
 		grandtextolong=grandtexto+grandtexto+grandtexto+grandtexto+grandtexto+grandtexto+grandtexto;
 		if(largo>grandtexto.Length){
 			TicketFrase.text=grandtextolong.Substring(0,largo);
