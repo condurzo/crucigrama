@@ -24,7 +24,7 @@ public class Marquesina : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.Space)) {
-			//go.GetComponent<Text> ()
+
 		}
 
 		cont+=Time.deltaTime;

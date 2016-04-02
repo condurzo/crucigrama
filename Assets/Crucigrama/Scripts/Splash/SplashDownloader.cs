@@ -16,13 +16,10 @@ public class SplashDownloader : MonoBehaviour {
 	// URL NIKE: http://cdn29.us1.fansshare.com/pictures/mobilewallpaper/nike-just-do-it-mobile-wallpaper-other-photo-mobile-wallpaper-2135420424.jpg
 
 	void Start(){
-		Invoke ("Empezar",2);
-	}
-
-	void Empezar(){
 		index = 0;
 		ListaSplash.Clear ();
 		ListaSplash = Parser.instance.GetAllSplash ();
+		Debug.Log(ListaSplash.Count);
 		sprites.Clear ();
 		for (int i = 0; i < ListaSplash.Count; i++) {
 			if (!File.Exists (Application.persistentDataPath + "/" + ListaSplash [i].id_splash + ".jpg")) {
@@ -31,7 +28,7 @@ public class SplashDownloader : MonoBehaviour {
 				LoadImage (ListaSplash [i].id_splash);
 			}
 		}
-		Invoke ("InicioShow", 2);
+		InicioShow();
 	}
 
 
@@ -53,7 +50,7 @@ public class SplashDownloader : MonoBehaviour {
 	}
 
 	void PasarEscena(){
-		Application.LoadLevel (1);
+		Application.LoadLevel (2);
 	}
 
 	//Guarda las fotos
