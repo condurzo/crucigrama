@@ -135,4 +135,23 @@ public class FBscript : MonoBehaviour{
         }
     }
 
+
+
+
+	//// SHARES FACEBOOK
+	#if UNITY_ANDROID
+	public void ShareHome(){
+		FB.FeedShare(
+			string.Empty,
+			new Uri(AppLinkURL),
+			"Hello this is the title",
+			"This is the caption",
+			"Check out this game",
+			new Uri("https://i.ytimg.com/vi/NtgtMQwr3Ko/maxresdefault.jpg"),
+			string.Empty,
+			ShareCallback
+		);
+	}
+	#endif
+
 }
