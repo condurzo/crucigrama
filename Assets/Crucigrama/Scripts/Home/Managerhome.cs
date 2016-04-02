@@ -11,6 +11,7 @@ public class Managerhome : MonoBehaviour {
 	private List<string> frases=new List<string>();
 	private int index;
 	public GameObject crucigramajuego;
+	public GameObject parse;
 	// Use this for initialization
 	void Awake (){
 		index = 0;
@@ -18,9 +19,8 @@ public class Managerhome : MonoBehaviour {
 			instance = this;
 		}
 		if (!GameObject.Find ("Parser")) {
-			GameObject go = new GameObject ();
+			GameObject go = Instantiate(parse)as GameObject;
 			go.name="Parser";
-			go.AddComponent<Parser> ();
 		}
 	}
 
