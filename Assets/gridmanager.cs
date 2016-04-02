@@ -1,0 +1,23 @@
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+
+public class gridmanager : MonoBehaviour {
+	public GridLayoutGroup grid;
+	public RectTransform recttrans;
+	public int ancho;
+	public float tamaño;
+	public GameObject button;
+
+	void Start () {
+		Gridcell[] gridcells=this.gameObject.GetComponentsInChildren<Gridcell>();
+		foreach(Gridcell gc in gridcells){
+			gc.texto="F";
+			gc.Actualizar();
+		} 
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	}
+}

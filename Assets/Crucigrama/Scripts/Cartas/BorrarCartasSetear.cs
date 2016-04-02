@@ -26,7 +26,7 @@ public class BorrarCartasSetear : MonoBehaviour {
         PlayerPrefs.SetInt("Carta18", 1);
         PlayerPrefs.SetInt("Carta19", 1);
         PlayerPrefs.SetInt("Carta20", 1);
-        PlayerPrefs.SetInt("Carta21", 0);
+        PlayerPrefs.SetInt("Carta21", 1);
     }
 	
 	// Update is called once per frame

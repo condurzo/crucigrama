@@ -12,32 +12,30 @@ public class TicketManager : MonoBehaviour {
 	public int largo;
 	private float cont;
 	private int index;
+	private bool startt;
+	private string grandtextolong;
 
-	void Start(){
+
+	void Start () {
+		startt=false;
 		cont=0;
 		index=0;
-		Invoke ("Empezar",2);
-	}
-
-	void Empezar () {
-		ListaTicket = Parser.instance.Tickets ();
+		Debug.Log(Parser.instance.Tickets().Count);
+		ListaTicket =Parser.instance.Tickets();
 		for (int i = 0; i < ListaTicket.Count; i++) {
-			grandtexto+=ListaTicket[i]+"       ";
-			TicketFrase.text=grandtexto.Substring(0,largo);
-			//TicketFrase.text = ListaTicket [i].texto;
-
-			switch (ListaTicket [i].estado) {
-			case "0":
-				Debug.Log("No disponible");
-				break;
-			case "1":
-				Debug.Log("Disponible");
-				break;
-			}
+			grandtexto+=ListaTicket[i].texto+"       ";
 		}
+		grandtextolong=grandtexto+grandtexto+grandtexto+grandtexto+grandtexto+grandtexto+grandtexto;
+		if(largo>grandtexto.Length){
+			TicketFrase.text=grandtextolong.Substring(0,largo);
+		}else{
+			TicketFrase.text=grandtexto.Substring(0,largo);
+		}
+		startt=true;
 	}
 
 	void Update () {
+		if(startt){
 		cont+=Time.deltaTime;
 		if(cont>=tiempo){
 			cont=0;
@@ -46,14 +44,14 @@ public class TicketManager : MonoBehaviour {
 				index=0;
 			}
 			string sub="";
-			string grandtextolong=grandtexto+grandtexto;
+				string grandtextolong=grandtexto+grandtexto+grandtexto+grandtexto+grandtexto+grandtexto+grandtexto;
 			if((index+largo)>grandtexto.Length){
 				sub=grandtextolong.Substring(index,largo);
 			}else{
 				sub=grandtexto.Substring(index,largo);
 			}
 			TicketFrase.text=sub;
-
+		}
 		}
 	}
 }
