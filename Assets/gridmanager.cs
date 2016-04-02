@@ -13,11 +13,11 @@ public class gridmanager : MonoBehaviour {
 		Gridcell[] gridcells=this.gameObject.GetComponentsInChildren<Gridcell>();
 		foreach(Gridcell gc in gridcells){
 			gc.texto="F";
+			gc.prendido=true;
 			gc.Actualizar();
 		} 
 	}
 	
-	// Update is called once per frame
 	void Update () {
 	}
 }
