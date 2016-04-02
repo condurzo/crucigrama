@@ -11,6 +11,7 @@ public class Marquesina : MonoBehaviour {
 	private float cont;
 	private int index;
 
+	public GameObject go;
 	void Start () {
 		cont=0;
 		index=0;
@@ -22,6 +23,10 @@ public class Marquesina : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			//go.GetComponent<Text> ()
+		}
+
 		cont+=Time.deltaTime;
 		if(cont>=tiempo){
 			cont=0;

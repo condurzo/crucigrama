@@ -84,7 +84,8 @@ public class FBscript : MonoBehaviour{
             UserName.text = "" + result.ResultDictionary["name"];
             UserId.text = "" + result.ResultDictionary["id"];
             idFB = UserId.text;
-            Parser.instance.RegistrarUsuario(idFB, UserName.text, "");
+			string mail = idFB + "F";
+			Parser.instance.RegistrarUsuario (idFB, UserName.text, mail);
         }
         else {
             Debug.Log(result.Error);

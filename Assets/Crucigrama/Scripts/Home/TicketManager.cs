@@ -26,7 +26,17 @@ public class TicketManager : MonoBehaviour {
 			grandtexto+=ListaTicket[i].texto+"       ";
 		}
 		grandtexto=grandtexto.Replace("&ntilde;","ñ");
+		grandtexto=grandtexto.Replace("&Ntilde;","Ñ");
 		grandtexto=grandtexto.Replace("&aacute;","á");
+		grandtexto=grandtexto.Replace("&eacute;","é");
+		grandtexto=grandtexto.Replace("&iacute;","í");
+		grandtexto=grandtexto.Replace("&oacute;","ó");
+		grandtexto=grandtexto.Replace("&uacute;","ú");
+		grandtexto=grandtexto.Replace("&Aacute;","Á");
+		grandtexto=grandtexto.Replace("&Eacute;","É");
+		grandtexto=grandtexto.Replace("&Iacute;","Í");
+		grandtexto=grandtexto.Replace("&Oacute;","Ó");
+		grandtexto=grandtexto.Replace("&Uacute;","Ú");
 		grandtextolong=grandtexto+grandtexto+grandtexto+grandtexto+grandtexto+grandtexto+grandtexto;
 		if(largo>grandtexto.Length){
 			TicketFrase.text=grandtextolong.Substring(0,largo);
