@@ -31,10 +31,13 @@ public class Parser : MonoBehaviour {
 
 	void Update(){
 		if(Input.GetKeyUp(KeyCode.A)){
-			List<Ticket> premiosfake=Tickets();
-			Debug.Log(premiosfake[0].id);
-			Debug.Log(premiosfake[0].texto);
-			Debug.Log(premiosfake[0].posicion);
+//			List<Jugador> rankingid=StartCoroutine( Ranking("15","1"));
+//			for(int i=0;i<rankingid.Count;i++){
+//				Debug.Log(rankingid[i].puesto);
+//				Debug.Log(rankingid[i].nombre);
+//				Debug.Log(rankingid[i].id);
+//				Debug.Log(rankingid[i].fecha);
+//			}
 		}
 	}
 
@@ -55,6 +58,7 @@ public class Parser : MonoBehaviour {
 			jsondatas.Add(jsondata);
 		}
 	}
+
 
 
 	public Splash GetSplash (int num){
@@ -96,6 +100,7 @@ public class Parser : MonoBehaviour {
 
 	public List<Ticket> Tickets(){
 		List<Ticket> ticke=new List<Ticket>();
+		Debug.Log("TICKETS "+jsondatas[3] ["tickets"].Count.ToString());
 		for (int i = 0; i < jsondatas[3] ["tickets"].Count; i++) {
 			Ticket tic = new Ticket ();
 			tic.id = jsondatas[3] ["tickets"] [i] ["id_ticket"].ToString ();
@@ -137,9 +142,35 @@ public class Parser : MonoBehaviour {
 		nom_jugador=nom_jugador.Replace(" ","-");
 		string url = "http://www.malditosnerds.com/crucigramas/front/jugador_registrar.php?idsocial_jugador="+idsocial_jugador+"&nom_jugador="+nom_jugador+"&email_jugador="+email_jugador+"&pass_jugador="+pass_jugador+"&estado_jugador="+estado_jugador+"&tipo_jugador="+tipo_jugador+"&fecha_jugador="+fecha_jugador+"&pendiente_asignar="+pendiente_asignar;
 		WWW www = new WWW (url);
-		Debug.Log("WWW "+www.text);
 		Debug.Log ("registre usuario: " + nom_jugador);
         Debug.Log("URL " + url);
+	}
+
+	public List<Jugador> Ranking(string idcrucigrama,string idjugador){
+		string url = "http://www.malditosnerds.com/crucigramas/front/ranking_cruci2.php?idcruci="+idcrucigrama+"&idjugador="+idjugador;
+		WWW www = new WWW (url);
+	//yield return www;
+		string txtjson=www.text;
+		int first = txtjson.IndexOf ('>');
+		int last=	txtjson.LastIndexOf('<');
+		string sub = "";
+		if ((first >= 0) && (last >= 0)) {
+			sub = txtjson.Substring (first + 1, (last - first) - 1);
+		} else {
+			sub=txtjson;
+		}
+		JsonData jsondatanew = JsonMapper.ToObject (sub);
+
+		List<Jugador> jugadoresrank=new List<Jugador>();
+		for(int i=0;i<jsondatanew["rankings"].Count;i++){
+			Jugador jug =new Jugador();
+			jug.puesto=jsondatanew["rankings"][i]["puesto"].ToString();
+			jug.nombre=jsondatanew["rankings"][i]["nombre"].ToString();
+			jug.fecha=jsondatanew["rankings"][i]["fecha_resuelto"].ToString();
+			jug.id=jsondatanew["rankings"][i]["id_jugador"].ToString();
+			jugadoresrank.Add(jug);
+		}
+		return jugadoresrank;
 	}
 
 	public List<Crucigrama> GetAllCrosswords(){
