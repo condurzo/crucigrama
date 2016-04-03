@@ -9,7 +9,7 @@ public class CartasManager : MonoBehaviour {
     public Image CartaGrande;
 
     public Sprite CartaDorso;
-    public Sprite Carta00;
+    public Sprite Carta22;
     public Sprite Carta01;
     public Sprite Carta02;
     public Sprite Carta03;
@@ -32,7 +32,7 @@ public class CartasManager : MonoBehaviour {
     public Sprite Carta20;
     public Sprite Carta21;
 
-    public Image _Carta00;
+    public Image _Carta22;
     public Image _Carta01;
     public Image _Carta02;
     public Image _Carta03;
@@ -57,8 +57,8 @@ public class CartasManager : MonoBehaviour {
 
     void Start(){
       
-        if (PlayerPrefs.GetInt("Carta00") == 0){
-            _Carta00.GetComponent<Image>().sprite = CartaDorso;
+        if (PlayerPrefs.GetInt("Carta22") == 0){
+            _Carta22.GetComponent<Image>().sprite = CartaDorso;
         }
         if (PlayerPrefs.GetInt("Carta01") == 0){
             _Carta01.GetComponent<Image>().sprite = CartaDorso;
@@ -127,10 +127,10 @@ public class CartasManager : MonoBehaviour {
     }
 
     
-    public void CartaGrande00 (){
-        if (PlayerPrefs.GetInt("Carta00") == 1){
+    public void CartaGrande22 (){
+        if (PlayerPrefs.GetInt("Carta22") == 1){
             CartaShow.SetActive(true);
-            CartaGrande.GetComponent<Image>().sprite = Carta00;
+            CartaGrande.GetComponent<Image>().sprite = Carta22;
         }
 	}
     public void CartaGrande01(){

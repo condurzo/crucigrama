@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Facebook.Unity;
 
+
 public class FBscript : MonoBehaviour{
 
     public GameObject DialogUsername;
@@ -143,27 +144,65 @@ public class FBscript : MonoBehaviour{
 		FB.FeedShare(
 			string.Empty,
 			new Uri("https://play.google.com/store/apps/details?id=com.malditosnerds.crucigrama"),//URL App
-			"Malditos Nerds App",//Title
-			"Estoy jugando con la App de Malditos Nerds.",//SubTitle
-			"Estoy jugando con la App de Malditos Nerds.",//Descripcion
+			"Estoy jugando con la App de Malditos Nerds.",//Title
+			"",//SubTitle
+			"",//Descripcion
 			new Uri("https://k40.kn3.net/taringa/2/3/3/1/7/5/8/alessa_gillespie/485.jpg"),//Imagen
 			string.Empty,
 			ShareCallback);
 	}
 
-	public void Carta00(){
+	public void Carta00(){//http://www.malditosnerds.com/crucigramas/uploads/shared/
 		FB.FeedShare(
 			string.Empty,
 			new Uri("https://play.google.com/store/apps/details?id=com.malditosnerds.crucigrama"),//URL App
-			"Malditos Nerds App",//Title
-			"Mi nueva carta de la coleccion en la App de Malditos Nerds.",//SubTitle
-			"Mi nueva carta de la coleccion en la App de Malditos Nerds.",//Descripcion
-			new Uri("http://assets.pokemon.com/assets/cms2-es-es/img/cards/web/XY3/XY3_ES_55.png"),//Imagen
+			"Mi nueva carta de la coleccion en la App de Malditos Nerds.",//Title
+			"",//SubTitle
+			"",//Descripcion
+			new Uri("http://www.malditosnerds.com/crucigramas/uploads/shared/Carta_01.png"),//Imagen
 			string.Empty,
 			ShareCallback);
 	}
 
-
+	public void CompartirCartasGanadas(){
+		int RandomCartas;
+		RandomCartas = UnityEngine.Random.Range(1, 4);
+		switch (RandomCartas) {
+		case 1:
+			FB.FeedShare(
+				string.Empty,
+				new Uri("https://play.google.com/store/apps/details?id=com.malditosnerds.crucigrama"),//URL App
+				"El momento mágico en la App de Malditos Nerds.",//Title
+				"",//SubTitle
+				"",//Descripcion
+				new Uri("http://www.malditosnerds.com/crucigramas/uploads/shared/Cartas_Ganadas_Redes_Sociales_01.png"),//Imagen
+				string.Empty,
+				ShareCallback);
+			break;
+		case 2:
+			FB.FeedShare(
+				string.Empty,
+				new Uri("https://play.google.com/store/apps/details?id=com.malditosnerds.crucigrama"),//URL App
+				"El momento mágico en la App de Malditos Nerds.",//Title
+				"",//SubTitle
+				"",//Descripcion
+				new Uri("http://www.malditosnerds.com/crucigramas/uploads/shared/Cartas_Ganadas_Redes_Sociales_02.png"),//Imagen
+				string.Empty,
+				ShareCallback);
+			break;
+		case 3:
+			FB.FeedShare(
+				string.Empty,
+				new Uri("https://play.google.com/store/apps/details?id=com.malditosnerds.crucigrama"),//URL App
+				"El momento mágico en la App de Malditos Nerds.",//Title
+				"",//SubTitle
+				"",//Descripcion
+				new Uri("http://www.malditosnerds.com/crucigramas/uploads/shared/Cartas_Ganadas_Redes_Sociales_03.png"),//Imagen
+				string.Empty,
+				ShareCallback);
+			break;
+		}
+	}
 
 	#endif
 
