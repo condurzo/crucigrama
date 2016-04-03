@@ -144,7 +144,7 @@ public class FBscript : MonoBehaviour{
 			string.Empty,
 			new Uri("https://play.google.com/store/apps/details?id=com.malditosnerds.crucigrama"),//URL App
 			"Malditos Nerds App",//Title
-			"",//SubTitle
+			"Estoy jugando con la App de Malditos Nerds.",//SubTitle
 			"Estoy jugando con la App de Malditos Nerds.",//Descripcion
 			new Uri("https://k40.kn3.net/taringa/2/3/3/1/7/5/8/alessa_gillespie/485.jpg"),//Imagen
 			string.Empty,
@@ -156,7 +156,7 @@ public class FBscript : MonoBehaviour{
 			string.Empty,
 			new Uri("https://play.google.com/store/apps/details?id=com.malditosnerds.crucigrama"),//URL App
 			"Malditos Nerds App",//Title
-			"",//SubTitle
+			"Mi nueva carta de la coleccion en la App de Malditos Nerds.",//SubTitle
 			"Mi nueva carta de la coleccion en la App de Malditos Nerds.",//Descripcion
 			new Uri("http://assets.pokemon.com/assets/cms2-es-es/img/cards/web/XY3/XY3_ES_55.png"),//Imagen
 			string.Empty,
