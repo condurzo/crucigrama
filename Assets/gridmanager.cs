@@ -15,7 +15,12 @@ public class gridmanager : MonoBehaviour {
 			gc.texto="F";
 			gc.prendido=true;
 			gc.Actualizar();
-		} 
+		}
+		for(int i=0;i<20;i++){
+			gridcells[i].gameObject.SetActive(true);
+			gridcells[i].texto="R";
+			gridcells[i].Actualizar();
+		}
 	}
 	
 	void Update () {
