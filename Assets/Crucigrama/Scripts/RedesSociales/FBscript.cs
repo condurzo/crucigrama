@@ -136,35 +136,31 @@ public class FBscript : MonoBehaviour{
         }
     }
 
-
-
-
-
-
-
-
-
 	//// SHARES FACEBOOK
 	#if UNITY_ANDROID
 
-
-	private string shareLink = "https://developers.facebook.com/";
-	private string shareTitle = "Link Title";
-	private string shareDescription = "Link Description";
-	private string shareImage = "http://i.imgur.com/j4M7vCO.jpg";
-
-	public void Compartir(){
+	public void CompartirHome(){
 		FB.FeedShare(
 			string.Empty,
-			new Uri("https://developers.facebook.com/"),
-			"Test Title",
-			"Test caption",
-			"Test Description",
-			new Uri("http://i.imgur.com/zkYlB.jpg"),
+			new Uri("https://play.google.com/store/apps/details?id=com.malditosnerds.crucigrama"),//URL App
+			"Malditos Nerds App",//Title
+			"",//SubTitle
+			"Estoy jugando con la App de Malditos Nerds.",//Descripcion
+			new Uri("https://k40.kn3.net/taringa/2/3/3/1/7/5/8/alessa_gillespie/485.jpg"),//Imagen
 			string.Empty,
 			ShareCallback);
-	
+	}
 
+	public void Carta00(){
+		FB.FeedShare(
+			string.Empty,
+			new Uri("https://play.google.com/store/apps/details?id=com.malditosnerds.crucigrama"),//URL App
+			"Malditos Nerds App",//Title
+			"",//SubTitle
+			"Mi nueva carta de la coleccion en la App de Malditos Nerds.",//Descripcion
+			new Uri("http://assets.pokemon.com/assets/cms2-es-es/img/cards/web/XY3/XY3_ES_55.png"),//Imagen
+			string.Empty,
+			ShareCallback);
 	}
 
 
