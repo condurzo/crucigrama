@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Palabra : MonoBehaviour {
 	public string id;
-	public string nom;
+	public string palabra;
 	public string def;
 	public string coordx;
 	public string coordy;

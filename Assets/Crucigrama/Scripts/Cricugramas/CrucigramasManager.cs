@@ -4,16 +4,11 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class CrucigramasManager : MonoBehaviour {
-
 	public List<Crucigrama> ListaCruci = new List<Crucigrama> ();
 	public GameObject CruciPrefab;
 	public Sprite sp0;
 
-	void Start(){
-		Invoke ("Empezar",2);
-	}
-
-	void Empezar () {
+	void Start () {
 		ListaCruci = Parser.instance.GetAllCrosswords ();
 		for (int i = 0; i < ListaCruci.Count; i++) {
 			GameObject go = Instantiate(CruciPrefab) as GameObject;

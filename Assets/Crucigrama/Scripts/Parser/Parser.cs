@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using System.Linq;
@@ -124,7 +124,7 @@ public class Parser : MonoBehaviour {
 		for (int j = 0; j < jsondatas[1] ["crucigramas"] [num] ["palabras"].Count; j++) {
 			Palabra pal = new Palabra ();
 			pal.id=jsondatas[1] ["crucigramas"] [num] ["palabras"][j]["id"].ToString ();
-			pal.nom=jsondatas[1] ["crucigramas"] [num] ["palabras"][j]["nom"].ToString ();
+			pal.palabra=jsondatas[1] ["crucigramas"] [num] ["palabras"][j]["nom"].ToString ();
 			pal.def=jsondatas[1] ["crucigramas"] [num] ["palabras"][j]["def"].ToString ();
 			pal.coordx=jsondatas[1] ["crucigramas"] [num] ["palabras"][j]["coorx"].ToString ();
 			pal.coordy=jsondatas[1] ["crucigramas"] [num] ["palabras"][j]["coory"].ToString ();
@@ -185,7 +185,7 @@ public class Parser : MonoBehaviour {
 			for (int j = 0; j < jsondatas[1] ["crucigramas"] [i] ["palabras"].Count; j++) {
 				Palabra pal = new Palabra ();
 				pal.id=jsondatas[1] ["crucigramas"] [i] ["palabras"][j]["id"].ToString ();
-				pal.nom=jsondatas[1] ["crucigramas"] [i] ["palabras"][j]["nom"].ToString ();
+				pal.palabra=jsondatas[1] ["crucigramas"] [i] ["palabras"][j]["nom"].ToString ();
 				pal.def=jsondatas[1] ["crucigramas"] [i] ["palabras"][j]["def"].ToString ();
 				pal.coordx=jsondatas[1] ["crucigramas"] [i] ["palabras"][j]["coorx"].ToString ();
 				pal.coordy=jsondatas[1] ["crucigramas"] [i] ["palabras"][j]["coory"].ToString ();

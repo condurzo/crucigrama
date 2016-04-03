@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -19,7 +19,7 @@ public class CrucigramaShower : MonoBehaviour {
 	}
 
 	public void Prender(){
-		GameObject go = Managerhome.instance.crucigramajuego;
+		GameObject go = Managerhome.instance.crucigramago;
 		go.SetActive (true);
 	}
 }

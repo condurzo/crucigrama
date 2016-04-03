@@ -4,18 +4,28 @@ using UnityEngine.UI;
 
 public class Gridcell : MonoBehaviour {
 	public Text Character;
+	private Button btn;
+	private Image imagen;
 	public string texto;
 	public bool prendido;
+
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		prendido=true;
+		btn=this.gameObject.GetComponent<Button>();
+		imagen=this.gameObject.GetComponent<Image>();
 	}
 	
-	// Update is called once per frame
 	public void Actualizar () {
+		bool estado=true;
 		Character.text=texto;
 		if(!prendido){
-			this.gameObject.SetActive(false);
+			estado=false;
+		}else{
+			estado=true;
 		}
+		btn.enabled=estado;
+		Character.enabled=estado;
+		imagen.enabled=estado;
 	}
 }
