@@ -100,7 +100,6 @@ public class Parser : MonoBehaviour {
 
 	public List<Ticket> Tickets(){
 		List<Ticket> ticke=new List<Ticket>();
-		Debug.Log("TICKETS "+jsondatas[3] ["tickets"].Count.ToString());
 		for (int i = 0; i < jsondatas[3] ["tickets"].Count; i++) {
 			Ticket tic = new Ticket ();
 			tic.id = jsondatas[3] ["tickets"] [i] ["id_ticket"].ToString ();

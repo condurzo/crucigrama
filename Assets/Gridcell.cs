@@ -4,16 +4,16 @@ using UnityEngine.UI;
 
 public class Gridcell : MonoBehaviour {
 	public Text Character;
-	private Button btn;
-	private Image imagen;
+	public Button btn;
+	public  Image imagen;
 	public string texto;
+	public int indexword;
 	public bool prendido;
+	public bool duplicado;
 
 	// Use this for initialization
 	void Awake () {
-		prendido=true;
-		btn=this.gameObject.GetComponent<Button>();
-		imagen=this.gameObject.GetComponent<Image>();
+		Reset();
 	}
 	
 	public void Actualizar () {
@@ -27,5 +27,20 @@ public class Gridcell : MonoBehaviour {
 		btn.enabled=estado;
 		Character.enabled=estado;
 		imagen.enabled=estado;
+		if(prendido){
+			btn.enabled=!duplicado;
+		}
+	}
+
+	public void Reset(){
+		duplicado=false;
+		prendido=true;
+		texto=" ";
+	}
+
+	public void Accion(){
+		Debug.Log(indexword);
+		Managerhome.palabraescribiendo=indexword;
+		Managerhome.instance.cambiarfrase();
 	}
 }

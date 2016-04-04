@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class Marquesina : MonoBehaviour {
 	public Text texto;
+	public Canvas canvas;
 	public string[] palabras;
 	private string grandtexto;
 	public float tiempo;
