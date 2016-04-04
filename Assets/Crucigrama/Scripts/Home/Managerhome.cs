@@ -81,6 +81,7 @@ public class Managerhome : MonoBehaviour {
 		if (index > frases.Count) {
 			index = 0;
 		}
+		palabraescribiendo=index;
 		frasetext.text = frases [index];
 	}
 
@@ -89,6 +90,7 @@ public class Managerhome : MonoBehaviour {
 		if (index < 0) {
 			index = frases.Count;
 		}
+		palabraescribiendo=index;
 		frasetext.text = frases [index];
 	}
 
