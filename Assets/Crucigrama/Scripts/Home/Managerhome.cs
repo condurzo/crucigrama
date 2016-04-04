@@ -105,8 +105,19 @@ public class Managerhome : MonoBehaviour {
 	}
 
 	public void enviar(){
+		int correctas=0;
+		int incorrectas=0;
 		for(int i=0;i<palabrasUser.Count;i++){
-			Debug.Log(palabrasUser[i]);
+			if((palabrasUser[i].ToUpper())==(palabras[i].palabra.ToUpper())){
+				correctas++;
+			}else{
+				incorrectas++;
+			}
+		}
+		if(correctas>=palabrasUser.Count){
+			//TERMINASTE EL CRUCI
+		}else{
+			//TENES "INCORRECTAS"
 		}
 	}
 
