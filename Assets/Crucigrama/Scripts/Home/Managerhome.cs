@@ -115,19 +115,23 @@ public class Managerhome : MonoBehaviour {
 			}
 
 			string pal=palabrasUser[palabraescribiendo];
-			Debug.Log(pal);
 			List<int> indexes=palabrasgrid[palabraescribiendo];
 			while(pal.Length<indexes.Count){
 				pal+=" ";
 			}
 			for(int i=0;i<indexes.Count;i++){
-				if((gridcells[indexes[i]].texto==" ")||(gridcells[indexes[i]].texto=="")||(pal.Substring(i,1)==" ")){
-					gridcells[indexes[i]].texto=pal.Substring(i,1);
-					gridcells[indexes[i]].Actualizar();
-				}else{
-					Debug.Log("no esta vacio");
-					Debug.Log("*"+gridcells[indexes[i]].texto+"*");
-				}
+					if((gridcells[indexes[i]].texto==" ")||(gridcells[indexes[i]].texto=="")||(charr=="borrar")){
+						gridcells[indexes[i]].texto=pal.Substring(i,1);
+						gridcells[indexes[i]].Actualizar();
+					}else{
+						char[] letras=palabrasUser[palabraescribiendo].ToCharArray();
+						letras[i]=gridcells[indexes[i]].texto.ToCharArray()[0];
+						string newword="";
+						for(int j=0;j<letras.Length;j++){
+							newword+=letras[j];
+						}
+						palabrasUser[palabraescribiendo]=newword;
+					}
 			}
 		}
 	}
