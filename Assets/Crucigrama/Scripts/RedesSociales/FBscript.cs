@@ -13,7 +13,7 @@ public class FBscript : MonoBehaviour{
     public string UsserFB;
     public string idFB;
     public string AppLinkURL { get; set; }
-
+	public string UrlCarta;
 
     void Start(){
         FB.Init(SetInit, OnHideUnity);
@@ -140,6 +140,79 @@ public class FBscript : MonoBehaviour{
 	//// SHARES FACEBOOK
 	#if UNITY_ANDROID
 
+	void Update(){
+		int CartasShares;
+		CartasShares = PlayerPrefs.GetInt("ShareCarta");
+		switch (CartasShares) {
+		case 01:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/01_El_Mago.png";
+			break;
+		case 02:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/02_La_Sacerdotisa.png";
+			break;
+		case 03:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/03_La_Emperatriz.png";
+			break;
+		case 04:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/04_El_Emperador.png";
+			break;
+		case 05:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/05_El_Sacerdote.png";
+			break;
+		case 06:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/06_Los%20Enamorados.png";
+			break;
+		case 07:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/07_El_Carro.png";
+			break;
+		case 08:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/08_La_Justicia.png";
+			break;
+		case 09:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/09_El_Ermita%c3%b1o.png";
+			break;
+		case 10:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/10_La_Rueda_de_la_Fortuna.png";
+			break;
+		case 11:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/11_La_Fuerza.png";
+			break;
+		case 12:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/12_El_Ahorcado.png";
+			break;
+		case 13:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/13_La_Muerte.png";
+			break;
+		case 14:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/14_La_Templanza.png";
+			break;
+		case 15:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/15_El_Diablo.png";
+			break;
+		case 16:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/16_La_Torre.png";
+			break;
+		case 17:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/17_La_Estrella.png";
+			break;
+		case 18:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/18_La_Luna.png";
+			break;
+		case 19:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/19_El_Sol.png";
+			break;
+		case 20:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/20_El_Juicio.png";
+			break;
+		case 21:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/21_El_Mundo.png";
+			break;
+		case 22:
+			UrlCarta = "http://www.malditosnerds.com/crucigramas/uploads/shared/22_El_Loco.png";
+			break;
+		}
+	}
+
 	public void CompartirHome(){
 		FB.FeedShare(
 			string.Empty,
@@ -147,19 +220,19 @@ public class FBscript : MonoBehaviour{
 			"Estoy jugando con la App de Malditos Nerds.",//Title
 			"",//SubTitle
 			"",//Descripcion
-			new Uri("https://k40.kn3.net/taringa/2/3/3/1/7/5/8/alessa_gillespie/485.jpg"),//Imagen
+			new Uri("http://www.malditosnerds.com/crucigramas/uploads/shared/home.jpg"),//Imagen
 			string.Empty,
 			ShareCallback);
 	}
 
-	public void Carta00(){//http://www.malditosnerds.com/crucigramas/uploads/shared/
+	public void CartaShare(){//http://www.malditosnerds.com/crucigramas/uploads/shared/
 		FB.FeedShare(
 			string.Empty,
 			new Uri("https://play.google.com/store/apps/details?id=com.malditosnerds.crucigrama"),//URL App
 			"Mi nueva carta de la coleccion en la App de Malditos Nerds.",//Title
 			"",//SubTitle
 			"",//Descripcion
-			new Uri("http://www.malditosnerds.com/crucigramas/uploads/shared/Carta_01.png"),//Imagen
+			new Uri(UrlCarta),//Imagen
 			string.Empty,
 			ShareCallback);
 	}
