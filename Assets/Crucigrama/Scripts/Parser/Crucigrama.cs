@@ -6,5 +6,6 @@ public class Crucigrama{
 	public string nombre;
 	public string estado;
 	public string fecha;
+	public string numpremios;
 	public Palabra[] palabras;
 }

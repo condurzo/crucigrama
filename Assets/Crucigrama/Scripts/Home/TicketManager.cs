@@ -15,7 +15,6 @@ public class TicketManager : MonoBehaviour {
 	private bool startt;
 	public string grandtextolong;
 	//&ntilde;       &aacute;       &ntilde;       &aacute;       &ntilde;       &aacute;       &ntilde;       &aacute;       &ntilde;       &aacute;       &ntilde;       &aacute;       &ntilde;       &aacute;       
-
 	void Start () {
 		startt=false;
 		cont=0;

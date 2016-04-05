@@ -25,11 +25,15 @@ public class Managerhome : MonoBehaviour {
 	public Sprite AceptarON;
 	public Sprite AceptarOFF;
 	public GameObject Registrar;
+	public GameObject Enviando;
+	public GameObject Errores;
+	public Text ErroresText;
 
 	private int correctas=0;
 	private int incorrectas=0;
 
 	void Awake (){
+		
 		palabraescribiendo=-1;
 		gridcells.Clear();
 		index = 0;
@@ -69,7 +73,7 @@ public class Managerhome : MonoBehaviour {
 			grid.Actualizar();
 		}
 		Cruciactual = Parser.instance.GetCrossword (id);
-
+		PlayerPrefs.SetString ("IdCrucigrama", Cruciactual.id);
 		for (int i = 0; i < Cruciactual.palabras.Length; i++) {
 			frases.Add (Cruciactual.palabras [i].def);
 			palabras.Add(Cruciactual.palabras[i]);
@@ -122,31 +126,30 @@ public class Managerhome : MonoBehaviour {
 		}
 		if(correctas>=palabrasUser.Count){
 			//TERMINASTE EL CRUCI
-			AceptarBtn.GetComponent<Button> ().interactable = true;
-			AceptarBtn.GetComponent<Image> ().sprite = AceptarON;
-			//activar Aceptar - En aceptar enviar al servicio y activar
+			if (PlayerPrefs.GetInt ("Registrado") == 0) {
+				Registrar.SetActive (true);
+				Debug.Log ("Entro");
+				return;
+			} 
+			if (PlayerPrefs.GetInt ("MostrarCartaShow") == 0) {
+				Enviando.SetActive (true);
+				ErroresText.text = incorrectas.ToString ();
+				PlayerPrefs.SetInt ("MostrarCartaShow", 1);
+			}
+
 		}else{
 			//TENES "INCORRECTAS"
-			AceptarBtn.GetComponent<Button> ().interactable = false;
-			AceptarBtn.GetComponent<Image> ().sprite = AceptarOFF;
+			Errores.SetActive(true);
 			//incorectas al popup.
 		}
 	}
 
 	public void Enviar(){
-		if (PlayerPrefs.GetInt ("Registrado") == 0) {
-			Registrar.SetActive (true);
-		}
-
-		Debug.Log ("ENVIAR");
 		//USAR ESTE PARA MANDAR EL CRUCIGRAMA jugador_estado_crucigrama_cartas.php?idjugador=20&idcruci=15&estado=1&valor1=2&valor2=17&valor3=13&valor4=1
 		//Usar este para sacar el ID en la Home jugador_check.php?idsocial_jugador=123321123321333&tipo=2	
 		//LLenar Valor 1,2,3 con las cartas randoms y valor 4 en 1 seria un bool true.
-
 			string url = "http://www.malditosnerds.com/crucigramas/front/";
 			WWW www = new WWW (url);
-			
-
 	}
 
 

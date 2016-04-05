@@ -689,11 +689,13 @@ public class GanasteCarta : MonoBehaviour {
 			Random3 = UnityEngine.Random.Range (0, 22);
 			return;
 		}
+		PlayerPrefs.SetInt ("Random1", Random1);
+		PlayerPrefs.SetInt ("Random2", Random2);
+		PlayerPrefs.SetInt ("Random3", Random3);
 	}
 
 	void Update () {
 		Randons ();
-
 		//Activar Aceptar
 		if ((PlayerPrefs.GetInt ("DarVuelta1") == 1) && (PlayerPrefs.GetInt ("DarVuelta2") == 1) && (PlayerPrefs.GetInt ("DarVuelta3") == 1)) {
 			AceptarBtn.GetComponent<Button> ().interactable = true;
@@ -709,5 +711,9 @@ public class GanasteCarta : MonoBehaviour {
 		PlayerPrefs.SetInt ("Ganada2", 0);
 		PlayerPrefs.SetInt ("Ganada3", 0);
 		PlayerPrefs.SetInt ("MostrarCartaShow", 0);
+		PlayerPrefs.SetInt ("Random1", 25);
+		PlayerPrefs.SetInt ("Random2", 25);
+		PlayerPrefs.SetInt ("Random3", 25);
+		PlayerPrefs.SetInt ("EnvieDatos", 0);
 	}
 }

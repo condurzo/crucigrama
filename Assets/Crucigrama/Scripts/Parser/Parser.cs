@@ -70,6 +70,7 @@ public class Parser : MonoBehaviour {
 		spla.segundos = jsondatas[0]["splash"][num]["segundos"].ToString();
 		spla.estado = jsondatas[0]["splash"][num]["estado"].ToString();
 		spla.cover = jsondatas[0]["splash"][num]["cover"].ToString();
+		spla.nombre = jsondatas[0]["splash"][num]["nombre"].ToString();
 		return spla;
 	}
 
@@ -82,6 +83,7 @@ public class Parser : MonoBehaviour {
 			spla.segundos = jsondatas[0]["splash"][i]["segundos"].ToString();
 			spla.estado = jsondatas[0]["splash"][i]["estado"].ToString();
 			spla.cover = jsondatas[0]["splash"][i]["cover"].ToString();
+			spla.nombre = jsondatas[0]["splash"][i]["nombre"].ToString();
 			splash.Add (spla);
 		}
 		splash.Sort ((IComparer<Splash>)new SplashSort ());
@@ -121,6 +123,7 @@ public class Parser : MonoBehaviour {
 		cru.nombre = jsondatas[1] ["crucigramas"] [num] ["nombre"].ToString ();
 		cru.estado = jsondatas[1] ["crucigramas"] [num] ["estado"].ToString ();
 		cru.fecha = jsondatas[1] ["crucigramas"] [num] ["fecha"].ToString ();
+		cru.numpremios = jsondatas[1] ["crucigramas"] [num] ["numpremios"].ToString ();
 		List<Palabra> palabras = new List<Palabra> ();
 		for (int j = 0; j < jsondatas[1] ["crucigramas"] [num] ["palabras"].Count; j++) {
 			Palabra pal = new Palabra ();
@@ -145,39 +148,24 @@ public class Parser : MonoBehaviour {
 		WWW www = new WWW (url);
 		Debug.Log ("registre usuario: " + nom_jugador);
         Debug.Log("URL " + url);
+		ObtenerIDCorutine ();
 	}
-
-<<<<<<< HEAD
-	public void ObtenerID(string IDFace){
-		idsocial = IDFace;
-		StartCoroutine ("ObtenerIDJson");
-	}
-
-	IEnumerator ObtenerIDJson(){
-			WWW www = new WWW("acavalaurl");
-			yield return www;
-			JsonData jsondataid = JsonMapper.ToObject (www.text);
-			idplayer=jsondataid["resultado"].ToString();
-			Debug.Log (idplayer);
-=======
+		
 	IEnumerator ObtenerID(string IDFace){
 		WWW www = new WWW ("http://www.malditosnerds.com/crucigramas/front/jugador_check.php?idsocial_jugador=" + IDFace + "&tipo=1");
 		yield return www;
 		string id = www.text;
-		//{"resultado":"44"}
-
-		JsonData jsonIDJugador = JsonMapper.ToObject (id);
-		jsondatas.Add(jsonIDJugador);
-		Debug.Log ("ID: " + www.text);
->>>>>>> origin/master
+		JsonData jsonIDJugador = JsonMapper.ToObject (www.text);
+		idplayer=jsonIDJugador["resultado"].ToString();
+		PlayerPrefs.SetString ("IdPlayer",idplayer);
+		Debug.Log ("ID: " + PlayerPrefs.GetString("IdPlayer"));
+		PlayerPrefs.SetInt ("Registrado", 1);
 	}
 
 	public void ObtenerIDCorutine(){
 		string IdTemp = PlayerPrefs.GetString ("IdFacebook");
 		StartCoroutine(ObtenerID(IdTemp));
 	}
-
-
 
 	public List<Jugador> Ranking(string idcrucigrama,string idjugador){
 		string url = "http://www.malditosnerds.com/crucigramas/front/ranking_cruci2.php?idcruci="+idcrucigrama+"&idjugador="+idjugador;

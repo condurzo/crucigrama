@@ -53,7 +53,13 @@ public class FBscript : MonoBehaviour{
 
     private void CallFBLogout(){
         FB.LogOut();
-        Debug.Log("Cerre Sesion");
+		if (PlayerPrefs.GetInt ("Registrado") == 1) {
+			PlayerPrefs.SetString ("IdFacebook", "a");
+			PlayerPrefs.SetInt ("Registrado", 0);
+			PlayerPrefs.SetString ("IdPlayer", "a");
+			Application.LoadLevel ("PreSplash");
+			Debug.Log ("Cerre Sesion");
+		}
     }
 
     void AuthCallBack(IResult result){
@@ -89,22 +95,14 @@ public class FBscript : MonoBehaviour{
             idFB = UserId.text;
 			string mail = idFB + "F";
 			Parser.instance.RegistrarUsuario (idFB, UserName.text, mail);
+			Parser.instance.RegistrarUsuario (idFB, UserName.text, mail);
 			PlayerPrefs.SetString ("IdFacebook", idFB);
-			Parser.instance.ObtenerIDCorutine ();
-			//StartCoroutine(ObtenerID());
         }
         else {
             Debug.Log(result.Error);
         }
     }
 
-//	IEnumerator ObtenerID(string IDFace){
-//		WWW www = new WWW ("http://www.malditosnerds.com/crucigramas/front/jugador_check.php?idsocial_jugador=" + idFB + "&tipo=1");
-//		yield return www;
-//		string id = www.text;
-//		//{"resultado":"44"}
-//		Debug.Log ("ID: " + www.text);
-//	}
 
     //void DisplayProfilePic(IGraphResult result){
     //    if (result.Texture != null){
