@@ -15,6 +15,8 @@ public class FBscript : MonoBehaviour{
     public string AppLinkURL { get; set; }
 	public string UrlCarta;
 
+	public String url; 
+
     void Start(){
         FB.Init(SetInit, OnHideUnity);
     }
@@ -87,11 +89,20 @@ public class FBscript : MonoBehaviour{
             idFB = UserId.text;
 			string mail = idFB + "F";
 			Parser.instance.RegistrarUsuario (idFB, UserName.text, mail);
+			StartCoroutine(ObtenerID());
         }
         else {
             Debug.Log(result.Error);
         }
     }
+
+	IEnumerator ObtenerID(){
+		WWW www = new WWW ("http://www.malditosnerds.com/crucigramas/front/jugador_check.php?idsocial_jugador=" + idFB + "&tipo=1");
+		yield return www;
+		string id = www.text;
+		//{"resultado":"44"}
+		Debug.Log ("ID: " + www.text);
+	}
 
     //void DisplayProfilePic(IGraphResult result){
     //    if (result.Texture != null){

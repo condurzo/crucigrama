@@ -24,6 +24,7 @@ public class Managerhome : MonoBehaviour {
 	public Button AceptarBtn;
 	public Sprite AceptarON;
 	public Sprite AceptarOFF;
+	public GameObject Registrar;
 
 	private int correctas=0;
 	private int incorrectas=0;
@@ -133,6 +134,10 @@ public class Managerhome : MonoBehaviour {
 	}
 
 	public void Enviar(){
+		if (PlayerPrefs.GetInt ("Registrado") == 0) {
+			Registrar.SetActive (true);
+		}
+
 		Debug.Log ("ENVIAR");
 		//USAR ESTE PARA MANDAR EL CRUCIGRAMA jugador_estado_crucigrama_cartas.php?idjugador=20&idcruci=15&estado=1&valor1=2&valor2=17&valor3=13&valor4=1
 		//Usar este para sacar el ID en la Home jugador_check.php?idsocial_jugador=123321123321333&tipo=2	

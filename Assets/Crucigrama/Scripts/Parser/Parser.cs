@@ -145,6 +145,7 @@ public class Parser : MonoBehaviour {
         Debug.Log("URL " + url);
 	}
 
+
 	public List<Jugador> Ranking(string idcrucigrama,string idjugador){
 		string url = "http://www.malditosnerds.com/crucigramas/front/ranking_cruci2.php?idcruci="+idcrucigrama+"&idjugador="+idjugador;
 		WWW www = new WWW (url);
