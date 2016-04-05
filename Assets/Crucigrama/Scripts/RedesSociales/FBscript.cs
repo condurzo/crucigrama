@@ -89,7 +89,8 @@ public class FBscript : MonoBehaviour{
             idFB = UserId.text;
 			string mail = idFB + "F";
 			Parser.instance.RegistrarUsuario (idFB, UserName.text, mail);
-			Parser.instance.ObtenerID (idFB);
+			PlayerPrefs.SetString ("IdFacebook", idFB);
+			Parser.instance.ObtenerIDCorutine ();
 			//StartCoroutine(ObtenerID());
         }
         else {

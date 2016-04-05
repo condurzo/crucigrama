@@ -145,9 +145,9 @@ public class Parser : MonoBehaviour {
         Debug.Log("URL " + url);
 	}
 
-	public void ObtenerID(string IDFace){
+	IEnumerator ObtenerID(string IDFace){
 		WWW www = new WWW ("http://www.malditosnerds.com/crucigramas/front/jugador_check.php?idsocial_jugador=" + IDFace + "&tipo=1");
-		//yield return www;
+		yield return www;
 		string id = www.text;
 		//{"resultado":"44"}
 
@@ -155,6 +155,13 @@ public class Parser : MonoBehaviour {
 		jsondatas.Add(jsonIDJugador);
 		Debug.Log ("ID: " + www.text);
 	}
+
+	public void ObtenerIDCorutine(){
+		string IdTemp = PlayerPrefs.GetString ("IdFacebook");
+		StartCoroutine(ObtenerID(IdTemp));
+	}
+
+
 
 	public List<Jugador> Ranking(string idcrucigrama,string idjugador){
 		string url = "http://www.malditosnerds.com/crucigramas/front/ranking_cruci2.php?idcruci="+idcrucigrama+"&idjugador="+idjugador;
