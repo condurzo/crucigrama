@@ -11,6 +11,8 @@ public class Parser : MonoBehaviour {
 	private List<string> jsontxts=new List<string>();
 	private List<JsonData> jsondatas= new List<JsonData>();
 	public static Parser instance;
+	private string idsocial;
+	public static string idplayer;
 
 	/*/
 	ORDEN
@@ -146,14 +148,16 @@ public class Parser : MonoBehaviour {
 	}
 
 	public void ObtenerID(string IDFace){
-		WWW www = new WWW ("http://www.malditosnerds.com/crucigramas/front/jugador_check.php?idsocial_jugador=" + IDFace + "&tipo=1");
-		//yield return www;
-		string id = www.text;
-		//{"resultado":"44"}
+		idsocial = IDFace;
+		StartCoroutine ("ObtenerIDJson");
+	}
 
-		JsonData jsonIDJugador = JsonMapper.ToObject (id);
-		jsondatas.Add(jsonIDJugador);
-		Debug.Log ("ID: " + www.text);
+	IEnumerator ObtenerIDJson(){
+			WWW www = new WWW("acavalaurl");
+			yield return www;
+			JsonData jsondataid = JsonMapper.ToObject (www.text);
+			idplayer=jsondataid["resultado"].ToString();
+			Debug.Log (idplayer);
 	}
 
 	public List<Jugador> Ranking(string idcrucigrama,string idjugador){
