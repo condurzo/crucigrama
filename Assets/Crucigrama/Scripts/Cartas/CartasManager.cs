@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class CartasManager : MonoBehaviour {
 
     public GameObject CartaShow;
+	public GameObject CartaShowGanaste;
 
     public Image CartaGrande;
 
@@ -81,7 +82,7 @@ public class CartasManager : MonoBehaviour {
 	void Start(){
 
 		if (PlayerPrefs.GetInt ("MostrarCartaShow") == 1) {
-			CartaShow.SetActive (true);
+			CartaShowGanaste.SetActive (true);
 		}
       
         if (PlayerPrefs.GetInt("Carta22") == 0){

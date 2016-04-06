@@ -10,7 +10,7 @@ public class EnviandoTemp : MonoBehaviour {
 	}
 	
 	void Cerrar () {
-		this.gameObject.SetActive (false);
 		CartaShow.SetActive (true);
+		this.gameObject.SetActive (false);
 	}
 }

@@ -13,7 +13,7 @@ public class Parser : MonoBehaviour {
 	public static Parser instance;
 	private string idsocial;
 	public static string idplayer;
-
+	public string IdTemp;
 	/*/
 	ORDEN
 	0-Splash
@@ -149,6 +149,7 @@ public class Parser : MonoBehaviour {
 		Debug.Log ("registre usuario: " + nom_jugador);
         Debug.Log("URL " + url);
 		ObtenerIDCorutine ();
+		PlayerPrefs.SetInt ("Registrado", 1);
 	}
 		
 	IEnumerator ObtenerID(string IDFace){
@@ -158,12 +159,12 @@ public class Parser : MonoBehaviour {
 		JsonData jsonIDJugador = JsonMapper.ToObject (www.text);
 		idplayer=jsonIDJugador["resultado"].ToString();
 		PlayerPrefs.SetString ("IdPlayer",idplayer);
-		Debug.Log ("ID: " + PlayerPrefs.GetString("IdPlayer"));
-		PlayerPrefs.SetInt ("Registrado", 1);
+		Debug.Log ("ID Jugadro: " + PlayerPrefs.GetString("IdPlayer"));
+
 	}
 
 	public void ObtenerIDCorutine(){
-		string IdTemp = PlayerPrefs.GetString ("IdFacebook");
+		IdTemp = PlayerPrefs.GetString ("IdFacebook");
 		StartCoroutine(ObtenerID(IdTemp));
 	}
 

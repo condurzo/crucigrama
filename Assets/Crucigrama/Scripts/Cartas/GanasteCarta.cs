@@ -715,5 +715,6 @@ public class GanasteCarta : MonoBehaviour {
 		PlayerPrefs.SetInt ("Random2", 25);
 		PlayerPrefs.SetInt ("Random3", 25);
 		PlayerPrefs.SetInt ("EnvieDatos", 0);
+		Application.LoadLevel ("Home");
 	}
 }

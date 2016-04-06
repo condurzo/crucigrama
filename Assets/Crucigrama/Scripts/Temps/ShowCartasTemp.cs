@@ -6,7 +6,8 @@ public class ShowCartasTemp : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		if (PlayerPrefs.GetInt ("EnvieDatos") == 0) {
-			string idJugador = PlayerPrefs.GetInt ("IdPlayer").ToString();
+			string idJugador = PlayerPrefs.GetString ("IdPlayer");
+			Debug.Log ("ID DE MIERDA : " + idJugador);
 			string idCrucigrama = PlayerPrefs.GetString ("IdCrucigrama");
 			string _Valor1 = PlayerPrefs.GetInt ("Random1").ToString();
 			string _Valor2 = PlayerPrefs.GetInt ("Random2").ToString();
