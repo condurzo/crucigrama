@@ -39,6 +39,8 @@ public class Managerhome : MonoBehaviour {
 
 	public void cambiarfrase(){
 		index=palabraescribiendo;
+		Debug.Log(index);
+		Debug.Log(frases.Count);
 		frasetext.text = frases [index];
 
 		foreach(Gridcell grid in gridcells){
@@ -71,7 +73,11 @@ public class Managerhome : MonoBehaviour {
 		Cruciactual = Parser.instance.GetCrossword (id);
 
 		for (int i = 0; i < Cruciactual.palabras.Length; i++) {
-			frases.Add (Cruciactual.palabras [i].def);
+			if(Cruciactual.palabras[i].estado=="1"){
+				frases.Add (Cruciactual.palabras [i].def);
+			}else{
+				frases.Add ("Palabras "+(i+1).ToString());
+			}
 			palabras.Add(Cruciactual.palabras[i]);
 			palabrasUser.Add("");
 		}
@@ -86,17 +92,20 @@ public class Managerhome : MonoBehaviour {
 	}
 
 	public void Siguiente(){
-		index++;
-		if (index > frases.Count) {
-			index = 0;
+		Debug.Log("siguiente");
+		palabraescribiendo++;
+		if (palabraescribiendo > frases.Count-1) {
+			palabraescribiendo = 0;
 		}
+		Debug.Log("SIG: "+palabraescribiendo.ToString());
 		cambiarfrase();
 	}
 
 	public void Anterior(){
-		index--;
-		if (index < 0) {
-			index = frases.Count;
+		Debug.Log("anterior");
+		palabraescribiendo--;
+		if (palabraescribiendo < 0) {
+			palabraescribiendo = frases.Count-1;
 		}
 		cambiarfrase();
 	}
@@ -123,8 +132,10 @@ public class Managerhome : MonoBehaviour {
 		}
 		if(correctas>=palabrasUser.Count){
 			//TERMINASTE EL CRUCI
+			Debug.Log("GANASTE");
 		}else{
 			//TENES "INCORRECTAS"
+			Debug.Log("Incorrectas: "+incorrectas.ToString());
 		}
 	}
 
