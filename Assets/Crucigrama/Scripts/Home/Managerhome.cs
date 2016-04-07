@@ -20,23 +20,13 @@ public class Managerhome : MonoBehaviour {
 	private List<int> indextotal=new List<int>();
 	public static int palabraescribiendo;
 	public List<List<int>> palabrasgrid=new List<List<int>>();
-
-	public Button AceptarBtn;
-	public Sprite AceptarON;
-	public Sprite AceptarOFF;
-	public GameObject Registrar;
-	public GameObject Enviando;
-	public GameObject Errores;
-	public Text ErroresText;
-
-	private int correctas=0;
-	private int incorrectas=0;
+	public Color coloractivo;
 
 	void Awake (){
-		
-		palabraescribiendo=-1;
+		palabraescribiendo=0;
 		gridcells.Clear();
 		index = 0;
+
 		if (instance == null) {
 			instance = this;
 		}
@@ -51,11 +41,17 @@ public class Managerhome : MonoBehaviour {
 		index=palabraescribiendo;
 		frasetext.text = frases [index];
 
+		foreach(Gridcell grid in gridcells){
+			grid.imagen.color=Color.white;
+		}
+		foreach(int intt in palabrasgrid[index]){
+			gridcells[intt].imagen.color=coloractivo;
+		}
 	}
 
 	public void CargarCruci(int id){
 		indextotal.Clear();
-		palabraescribiendo=-1;
+		palabraescribiendo=0;
 		gridcells.Clear();
 		palabrasgrid.Clear();
 		frases.Clear ();
@@ -73,7 +69,7 @@ public class Managerhome : MonoBehaviour {
 			grid.Actualizar();
 		}
 		Cruciactual = Parser.instance.GetCrossword (id);
-		PlayerPrefs.SetString ("IdCrucigrama", Cruciactual.id);
+
 		for (int i = 0; i < Cruciactual.palabras.Length; i++) {
 			frases.Add (Cruciactual.palabras [i].def);
 			palabras.Add(Cruciactual.palabras[i]);
@@ -86,6 +82,7 @@ public class Managerhome : MonoBehaviour {
 				frasetext.text = frases [index];
 			}
 		}
+		cambiarfrase();
 	}
 
 	public void Siguiente(){
@@ -93,8 +90,7 @@ public class Managerhome : MonoBehaviour {
 		if (index > frases.Count) {
 			index = 0;
 		}
-		palabraescribiendo=index;
-		frasetext.text = frases [index];
+		cambiarfrase();
 	}
 
 	public void Anterior(){
@@ -102,8 +98,7 @@ public class Managerhome : MonoBehaviour {
 		if (index < 0) {
 			index = frases.Count;
 		}
-		palabraescribiendo=index;
-		frasetext.text = frases [index];
+		cambiarfrase();
 	}
 
 	public void GenerarCruci(){
@@ -116,7 +111,9 @@ public class Managerhome : MonoBehaviour {
 		}
 	}
 
-	public void ActivarEnviar(){
+	public void enviar(){
+		int correctas=0;
+		int incorrectas=0;
 		for(int i=0;i<palabrasUser.Count;i++){
 			if((palabrasUser[i].ToUpper())==(palabras[i].palabra.ToUpper())){
 				correctas++;
@@ -126,35 +123,14 @@ public class Managerhome : MonoBehaviour {
 		}
 		if(correctas>=palabrasUser.Count){
 			//TERMINASTE EL CRUCI
-			if (PlayerPrefs.GetInt ("Registrado") == 0) {
-				Registrar.SetActive (true);
-				Debug.Log ("Entro");
-				return;
-			} 
-			if (PlayerPrefs.GetInt ("MostrarCartaShow") == 0) {
-				Enviando.SetActive (true);
-				ErroresText.text = incorrectas.ToString ();
-				PlayerPrefs.SetInt ("MostrarCartaShow", 1);
-			}
-
 		}else{
 			//TENES "INCORRECTAS"
-			Errores.SetActive(true);
-			//incorectas al popup.
 		}
 	}
 
-	public void Enviar(){
-		//USAR ESTE PARA MANDAR EL CRUCIGRAMA jugador_estado_crucigrama_cartas.php?idjugador=20&idcruci=15&estado=1&valor1=2&valor2=17&valor3=13&valor4=1
-		//Usar este para sacar el ID en la Home jugador_check.php?idsocial_jugador=123321123321333&tipo=2	
-		//LLenar Valor 1,2,3 con las cartas randoms y valor 4 en 1 seria un bool true.
-			string url = "http://www.malditosnerds.com/crucigramas/front/";
-			WWW www = new WWW (url);
-	}
-
-
-
 	public void Teclado(string charr){
+		Debug.Log("TEcla "+charr);
+		Debug.Log(palabraescribiendo);
 		if(palabraescribiendo!=-1){
 			if(charr=="borrar"){
 				if(palabrasUser[palabraescribiendo].Length>0){
