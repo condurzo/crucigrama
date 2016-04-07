@@ -28,7 +28,7 @@ public class CrucigramasManager : MonoBehaviour {
 			crucishow.id = ListaCruci.Count-i;
 			crucishow.estado.text = estado;
 			LayoutElement lay = go.GetComponent<LayoutElement> ();
-			lay.preferredHeight = Screen.height / 10;
+			lay.preferredHeight = Screen.height / 14;
 			if (i == 0) {
 				lay.preferredHeight = lay.preferredHeight * 2;
 				crucishow.imagen.sprite = sp0;

@@ -122,6 +122,7 @@ public class Parser : MonoBehaviour {
 		cru.id = jsondatas[1] ["crucigramas"][num]["id_crucigrama"].ToString();
 		cru.nombre = jsondatas[1] ["crucigramas"] [num] ["nombre"].ToString ();
 		cru.estado = jsondatas[1] ["crucigramas"] [num] ["estado"].ToString ();
+		cru.resuelto = jsondatas[1] ["crucigramas"] [num] ["resuelto"].ToString ();
 		cru.fecha = jsondatas[1] ["crucigramas"] [num] ["fecha"].ToString ();
 		cru.numpremios = jsondatas[1] ["crucigramas"] [num] ["numpremios"].ToString ();
 		List<Palabra> palabras = new List<Palabra> ();
@@ -149,7 +150,7 @@ public class Parser : MonoBehaviour {
 		Debug.Log ("registre usuario: " + nom_jugador);
         Debug.Log("URL " + url);
 		ObtenerIDCorutine ();
-		PlayerPrefs.SetInt ("Registrado", 1);
+		//PlayerPrefs.SetInt ("Registrado", 1);
 	}
 		
 	IEnumerator ObtenerID(string IDFace){
@@ -160,13 +161,39 @@ public class Parser : MonoBehaviour {
 		idplayer=jsonIDJugador["resultado"].ToString();
 		PlayerPrefs.SetString ("IdPlayer",idplayer);
 		Debug.Log ("ID Jugadro: " + PlayerPrefs.GetString("IdPlayer"));
-
 	}
 
 	public void ObtenerIDCorutine(){
 		IdTemp = PlayerPrefs.GetString ("IdFacebook");
 		StartCoroutine(ObtenerID(IdTemp));
 	}
+
+	public List<EstadoJugador> EstadoJugadorObtener(string IDplayer){
+		string urlE = "http://www.malditosnerds.com/crucigramas/front/cartasactivas.php?idjugador=" + IDplayer;
+		WWW www = new WWW (urlE);
+		//yield return www;
+		string txtEstJug = www.text;
+		JsonData jsonEstadoJugador = JsonMapper.ToObject (txtEstJug);
+
+		List<EstadoJugador> estadoPlayer = new List<EstadoJugador> ();
+		for (int i = 0; i < jsonEstadoJugador ["jugador"].Count; i++) {
+			EstadoJugador estJug = new EstadoJugador ();
+			estJug.id = jsonEstadoJugador ["jugador"] [i] ["id"].ToString();
+			estJug.c1 = jsonEstadoJugador ["jugador"] [i] ["c1"].ToString();
+			estJug.c2 = jsonEstadoJugador ["jugador"] [i] ["c2"].ToString();
+			estJug.c3 = jsonEstadoJugador ["jugador"] [i] ["c3"].ToString();
+			estJug.c4 = jsonEstadoJugador ["jugador"] [i] ["c4"].ToString();
+			estadoPlayer.Add (estJug);
+			Debug.Log ("Carta4: " + estJug.c4);
+			//PlayerPrefs.SetString ("idCarta4",estJug.c4);
+		}
+		return estadoPlayer;
+	}
+
+//	public void EstadoJugadorCorutine(){
+//		string idJugador = PlayerPrefs.GetString("IdPlayer");
+//		StartCoroutine (EstadoJugadorObtener (idJugador));
+//	}
 
 	public List<Jugador> Ranking(string idcrucigrama,string idjugador){
 		string url = "http://www.malditosnerds.com/crucigramas/front/ranking_cruci2.php?idcruci="+idcrucigrama+"&idjugador="+idjugador;

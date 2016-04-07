@@ -43,6 +43,7 @@ public class TicketManager : MonoBehaviour {
 			TicketFrase.text=grandtexto.Substring(0,largo);
 		}
 		startt=true;
+		TicketFrase.resizeTextForBestFit = false;
 	}
 
 	void Update () {

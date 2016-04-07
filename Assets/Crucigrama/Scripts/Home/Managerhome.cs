@@ -21,6 +21,9 @@ public class Managerhome : MonoBehaviour {
 	public static int palabraescribiendo;
 	public List<List<int>> palabrasgrid=new List<List<int>>();
 	public Color coloractivo;
+	public GameObject Enviando;
+	public GameObject Errores;
+	public Text ErroresText;
 
 	void Awake (){
 		palabraescribiendo=0;
@@ -73,7 +76,8 @@ public class Managerhome : MonoBehaviour {
 		Cruciactual = Parser.instance.GetCrossword (id);
 
 		for (int i = 0; i < Cruciactual.palabras.Length; i++) {
-			if(Cruciactual.palabras[i].estado=="1"){
+			//if(Cruciactual.palabras[i].estado=="1"){
+			if(Cruciactual.resuelto == "1"){
 				frases.Add (Cruciactual.palabras [i].def);
 			}else{
 				frases.Add ("Palabras "+(i+1).ToString());
@@ -132,9 +136,15 @@ public class Managerhome : MonoBehaviour {
 		}
 		if(correctas>=palabrasUser.Count){
 			//TERMINASTE EL CRUCI
+			if (PlayerPrefs.GetInt ("MostrarCartaShow") == 0) {
+				Enviando.SetActive (true);
+				PlayerPrefs.SetInt ("MostrarCartaShow", 1);
+			}
 			Debug.Log("GANASTE");
 		}else{
 			//TENES "INCORRECTAS"
+			Errores.SetActive(true);
+			ErroresText.text = incorrectas.ToString ();
 			Debug.Log("Incorrectas: "+incorrectas.ToString());
 		}
 	}

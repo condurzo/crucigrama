@@ -5,7 +5,7 @@ public class BorrarCartasSetear : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		PlayerPrefs.SetInt ("Registrado", 0);
+		//PlayerPrefs.SetInt ("Registrado", 0);
 //        PlayerPrefs.SetInt("Carta22", 0);
 //        PlayerPrefs.SetInt("Carta01", 0);
 //        PlayerPrefs.SetInt("Carta02", 0);

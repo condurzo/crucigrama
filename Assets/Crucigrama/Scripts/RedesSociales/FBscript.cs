@@ -19,7 +19,14 @@ public class FBscript : MonoBehaviour{
 
     void Start(){
         FB.Init(SetInit, OnHideUnity);
+		string idTemp = PlayerPrefs.GetString ("IdPlayer");
+		Parser.instance.EstadoJugadorObtener (idTemp);
+		//Debug.Log ("ID Jugadro: " + PlayerPrefs.GetString("IdPlayer"));
     }
+
+	void ExitApp(){
+		Application.Quit ();
+	}
 
     void SetInit(){
         if (FB.IsLoggedIn){
@@ -39,12 +46,9 @@ public class FBscript : MonoBehaviour{
     }
 
     public void FBlogin(){
-
         List<string> permissions = new List<string>();
         permissions.Add("public_profile");
-
         FB.LogInWithReadPermissions(permissions, AuthCallBack);
-        
     }
 
     public void FBLogout(){
@@ -53,13 +57,13 @@ public class FBscript : MonoBehaviour{
 
     private void CallFBLogout(){
         FB.LogOut();
-		if (PlayerPrefs.GetInt ("Registrado") == 1) {
+		//if (PlayerPrefs.GetInt ("Registrado") == 1) {
 			PlayerPrefs.SetString ("IdFacebook", "a");
-			PlayerPrefs.SetInt ("Registrado", 0);
+			//PlayerPrefs.SetInt ("Registrado", 0);
 			PlayerPrefs.SetString ("IdPlayer", "a");
 			Application.LoadLevel ("PreSplash");
 			Debug.Log ("Cerre Sesion");
-		}
+		//}
     }
 
     void AuthCallBack(IResult result){
@@ -98,8 +102,6 @@ public class FBscript : MonoBehaviour{
 			Debug.Log ("IDFACE: " + idFB);
 			Parser.instance.ObtenerIDCorutine ();
 			Parser.instance.RegistrarUsuario (idFB, UserName.text, mail);
-
-
         }
         else {
             Debug.Log(result.Error);

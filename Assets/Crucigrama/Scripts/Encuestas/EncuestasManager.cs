@@ -21,7 +21,7 @@ public class EncuestasManager : MonoBehaviour {
             GameObject go = Instantiate(CruciPrefab) as GameObject;
             go.transform.parent = gameObject.transform;
             LayoutElement lay = go.GetComponent<LayoutElement>();
-            lay.preferredHeight = Screen.height / 10;
+            lay.preferredHeight = Screen.height / 14;
             
         }
     }

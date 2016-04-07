@@ -18,7 +18,22 @@ public class GanasteCarta : MonoBehaviour {
 	public int Random2;
 	public int Random3;
 
+	public GameObject Home;
+	public GameObject CrucigramaSeccion;
+	public GameObject CartasSeccion;
+	public GameObject Tabs;
+	public TabsOrden Orden;
+
 	void Start(){
+		if (PlayerPrefs.GetInt ("Reinicie") == 1) {
+			Home.SetActive (false);
+			CartasSeccion.SetActive (true);
+			CrucigramaSeccion.SetActive (false);
+			Tabs.SetActive (true);
+			Orden.EnCartas ();
+			PlayerPrefs.SetInt ("Reinicie", 0);
+		}
+
 		Random1 = UnityEngine.Random.Range (0, 22);
 		Random2 = UnityEngine.Random.Range (0, 22);
 		Random3 = UnityEngine.Random.Range (0, 22);
@@ -715,6 +730,7 @@ public class GanasteCarta : MonoBehaviour {
 		PlayerPrefs.SetInt ("Random2", 25);
 		PlayerPrefs.SetInt ("Random3", 25);
 		PlayerPrefs.SetInt ("EnvieDatos", 0);
+		PlayerPrefs.SetInt ("Reinicie", 1);
 		Application.LoadLevel ("Home");
 	}
 }
