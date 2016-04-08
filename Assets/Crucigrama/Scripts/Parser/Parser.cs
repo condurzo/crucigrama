@@ -20,6 +20,7 @@ public class Parser : MonoBehaviour {
 	1-Crucigrama
 	2-premios
 	3-ticket
+	4-version
 	/*/
 
 	void Awake(){
@@ -33,13 +34,7 @@ public class Parser : MonoBehaviour {
 
 	void Update(){
 		if(Input.GetKeyUp(KeyCode.A)){
-//			List<Jugador> rankingid=StartCoroutine( Ranking("15","1"));
-//			for(int i=0;i<rankingid.Count;i++){
-//				Debug.Log(rankingid[i].puesto);
-//				Debug.Log(rankingid[i].nombre);
-//				Debug.Log(rankingid[i].id);
-//				Debug.Log(rankingid[i].fecha);
-//			}
+			Debug.Log(GetVersion());
 		}
 	}
 
@@ -117,6 +112,18 @@ public class Parser : MonoBehaviour {
 		return ticke;
 	}
 
+	public string GetVersion(){
+		string versionactual="0.0.0";
+		for (int j = 0; j < jsondatas[4]["versiones"].Count; j++) {
+			if(jsondatas[4]["versiones"][j]["f"].ToString()=="1"){
+				return jsondatas[4]["versiones"][j]["v"].ToString();
+			}
+
+		}
+
+		return versionactual;
+	}
+
 	public Crucigrama GetCrossword(int num){
 		Crucigrama cru = new Crucigrama();
 		cru.id = jsondatas[1] ["crucigramas"][num]["id_crucigrama"].ToString();
@@ -168,26 +175,23 @@ public class Parser : MonoBehaviour {
 		StartCoroutine(ObtenerID(IdTemp));
 	}
 
-	public List<EstadoJugador> EstadoJugadorObtener(string IDplayer){
+	public EstadoJugador EstadoJugadorObtener(string IDplayer){
 		string urlE = "http://www.malditosnerds.com/crucigramas/front/cartasactivas.php?idjugador=" + IDplayer;
 		WWW www = new WWW (urlE);
-		//yield return www;
+		EstadoJugador estJug = new EstadoJugador ();
+		while(www.isDone){
 		string txtEstJug = www.text;
 		JsonData jsonEstadoJugador = JsonMapper.ToObject (txtEstJug);
 
-		List<EstadoJugador> estadoPlayer = new List<EstadoJugador> ();
-		for (int i = 0; i < jsonEstadoJugador ["jugador"].Count; i++) {
-			EstadoJugador estJug = new EstadoJugador ();
-			estJug.id = jsonEstadoJugador ["jugador"] [i] ["id"].ToString();
-			estJug.c1 = jsonEstadoJugador ["jugador"] [i] ["c1"].ToString();
-			estJug.c2 = jsonEstadoJugador ["jugador"] [i] ["c2"].ToString();
-			estJug.c3 = jsonEstadoJugador ["jugador"] [i] ["c3"].ToString();
-			estJug.c4 = jsonEstadoJugador ["jugador"] [i] ["c4"].ToString();
-			estadoPlayer.Add (estJug);
-			Debug.Log ("Carta4: " + estJug.c4);
-			//PlayerPrefs.SetString ("idCarta4",estJug.c4);
+
+			estJug.id = jsonEstadoJugador ["jugador"] [0] ["id"].ToString();
+			estJug.c1 = jsonEstadoJugador ["jugador"] [0] ["c1"].ToString();
+			estJug.c2 = jsonEstadoJugador ["jugador"] [0] ["c2"].ToString();
+			estJug.c3 = jsonEstadoJugador ["jugador"] [0] ["c3"].ToString();
+			estJug.c4 = jsonEstadoJugador ["jugador"] [0] ["c4"].ToString();
+		
 		}
-		return estadoPlayer;
+		return estJug;
 	}
 
 //	public void EstadoJugadorCorutine(){
