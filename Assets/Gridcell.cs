@@ -30,6 +30,12 @@ public class Gridcell : MonoBehaviour {
 		if(prendido){
 			btn.enabled=!duplicado;
 		}
+
+		if(imagen.color==Color.black){
+			Character.color=Color.white;
+		}else{
+			Character.color=Color.black;
+		}
 	}
 
 	public void Reset(){

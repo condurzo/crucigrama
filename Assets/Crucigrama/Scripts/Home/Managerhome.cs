@@ -47,10 +47,12 @@ public class Managerhome : MonoBehaviour {
 		frasetext.text = frases [index];
 
 		foreach(Gridcell grid in gridcells){
-			grid.imagen.color=Color.white;
+			grid.imagen.color=Color.black;
+			grid.Character.color=Color.white;
 		}
 		foreach(int intt in palabrasgrid[index]){
 			gridcells[intt].imagen.color=coloractivo;
+			gridcells[intt].Character.color=Color.black;
 		}
 	}
 
@@ -233,6 +235,7 @@ public class Managerhome : MonoBehaviour {
 			gridcells[intt.index].texto="";
 			gridcells[intt.index].indexword=indexwordd;
 			gridcells[intt.index].duplicado=intt.duplicado;
+			gridcells[intt.index].imagen.color=Color.black;
 			gridcells[intt.index].Actualizar();
 		}
 		palabrasgrid.Add(indexint);
