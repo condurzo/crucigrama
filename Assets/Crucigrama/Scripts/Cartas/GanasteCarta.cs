@@ -20,6 +20,7 @@ public class GanasteCarta : MonoBehaviour {
 
 	public GameObject Home;
 	public GameObject CrucigramaSeccion;
+	public GameObject EncuestaSeccion;
 	public GameObject CartasSeccion;
 	public GameObject Tabs;
 	public TabsOrden Orden;
@@ -29,6 +30,7 @@ public class GanasteCarta : MonoBehaviour {
 			Home.SetActive (false);
 			CartasSeccion.SetActive (true);
 			CrucigramaSeccion.SetActive (false);
+			EncuestaSeccion.SetActive (false);
 			Tabs.SetActive (true);
 			Orden.EnCartas ();
 			PlayerPrefs.SetInt ("Reinicie", 0);

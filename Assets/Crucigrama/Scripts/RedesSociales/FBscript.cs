@@ -21,7 +21,7 @@ public class FBscript : MonoBehaviour{
         FB.Init(SetInit, OnHideUnity);
 		string idTemp = PlayerPrefs.GetString ("IdPlayer");
 		Parser.instance.EstadoJugadorObtener (idTemp);
-		//Debug.Log ("ID Jugadro: " + PlayerPrefs.GetString("IdPlayer"));
+		Debug.Log ("ID Jugadro: " + PlayerPrefs.GetString("IdPlayer"));
     }
 
 	void ExitApp(){

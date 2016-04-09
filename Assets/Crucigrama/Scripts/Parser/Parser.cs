@@ -182,16 +182,15 @@ public class Parser : MonoBehaviour {
 		while(www.isDone){
 		string txtEstJug = www.text;
 		JsonData jsonEstadoJugador = JsonMapper.ToObject (txtEstJug);
-
-
 			estJug.id = jsonEstadoJugador ["jugador"] [0] ["id"].ToString();
 			estJug.c1 = jsonEstadoJugador ["jugador"] [0] ["c1"].ToString();
 			estJug.c2 = jsonEstadoJugador ["jugador"] [0] ["c2"].ToString();
 			estJug.c3 = jsonEstadoJugador ["jugador"] [0] ["c3"].ToString();
 			estJug.c4 = jsonEstadoJugador ["jugador"] [0] ["c4"].ToString();
-		
 		}
+		Debug.Log ("C1: " + estJug.c1);
 		return estJug;
+
 	}
 
 //	public void EstadoJugadorCorutine(){
