@@ -5,7 +5,8 @@ using UnityEngine.UI;
 public class Gridcell : MonoBehaviour {
 	public Text Character;
 	public Button btn;
-	public  Image imagen;
+	public  Image contenedor;
+	public  Image borde;
 	public string texto;
 	public int indexword;
 	public bool prendido;
@@ -26,12 +27,13 @@ public class Gridcell : MonoBehaviour {
 		}
 		btn.enabled=estado;
 		Character.enabled=estado;
-		imagen.enabled=estado;
+		contenedor.enabled=estado;
+		borde.enabled=estado;
 		if(prendido){
 			btn.enabled=!duplicado;
 		}
 
-		if(imagen.color==Color.black){
+		if(contenedor.color==Color.black){
 			Character.color=Color.white;
 		}else{
 			Character.color=Color.black;
