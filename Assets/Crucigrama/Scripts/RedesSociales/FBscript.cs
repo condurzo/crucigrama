@@ -14,15 +14,26 @@ public class FBscript : MonoBehaviour{
     public string idFB;
     public string AppLinkURL { get; set; }
 	public string UrlCarta;
-
 	public String url; 
+	public GameObject LoginPopup;
 
     void Start(){
         FB.Init(SetInit, OnHideUnity);
-		string idTemp = PlayerPrefs.GetString ("IdPlayer");
-		Debug.Log("IDTEMP: "+idTemp);
-		Parser.instance.ObtenerEstadoJugador("53");
-		//esto ya guarda en playerprefs el c1.c2.c3.c4...
+
+		if ((PlayerPrefs.GetInt ("Registrado") == 1)) {
+			if (PlayerPrefs.GetString ("c4") == "a") {
+				BajarCartar ();
+			}
+		} else {
+			LoginPopup.SetActive (true);
+		}
+
+//		PlayerPrefs.SetString ("IdFacebook", "a");
+//		PlayerPrefs.SetString ("IdPlayer", "a");
+//		PlayerPrefs.SetString ("c1","a");
+//		PlayerPrefs.SetString ("c2","a");
+//		PlayerPrefs.SetString ("c3","a");
+//		PlayerPrefs.SetString ("c4","a");
     }
 
 	void ExitApp(){
@@ -58,13 +69,17 @@ public class FBscript : MonoBehaviour{
 
     private void CallFBLogout(){
         FB.LogOut();
-		//if (PlayerPrefs.GetInt ("Registrado") == 1) {
+		if (PlayerPrefs.GetInt ("Registrado") == 1) {
 			PlayerPrefs.SetString ("IdFacebook", "a");
-			//PlayerPrefs.SetInt ("Registrado", 0);
 			PlayerPrefs.SetString ("IdPlayer", "a");
+			PlayerPrefs.SetString ("c1","a");
+			PlayerPrefs.SetString ("c2","a");
+			PlayerPrefs.SetString ("c3","a");
+			PlayerPrefs.SetString ("c4","a");
+			PlayerPrefs.SetInt ("Registrado", 0);
 			Application.LoadLevel ("PreSplash");
 			Debug.Log ("Cerre Sesion");
-		//}
+		}
     }
 
     void AuthCallBack(IResult result){
@@ -103,11 +118,25 @@ public class FBscript : MonoBehaviour{
 			Debug.Log ("IDFACE: " + idFB);
 			Parser.instance.ObtenerIDCorutine ();
 			Parser.instance.RegistrarUsuario (idFB, UserName.text, mail);
+			BajarCartar ();
         }
         else {
             Debug.Log(result.Error);
         }
     }
+
+	public void BajarCartar(){
+		string idTemp = PlayerPrefs.GetString ("IdPlayer");
+		Debug.Log("IDTEMP: "+idTemp);
+		Parser.instance.ObtenerEstadoJugador(idTemp);
+		//esto ya guarda en playerprefs el c1.c2.c3.c4...
+		Debug.Log("C1 :"+PlayerPrefs.GetString ("c1"));
+		Debug.Log("C2 :"+PlayerPrefs.GetString ("c2"));
+		Debug.Log("C3 :"+PlayerPrefs.GetString ("c3"));
+		Debug.Log("C4 :"+PlayerPrefs.GetString ("c4"));
+		Application.LoadLevel ("Home");
+	}
+
 
 
     //void DisplayProfilePic(IGraphResult result){
@@ -154,10 +183,22 @@ public class FBscript : MonoBehaviour{
         }
     }
 
+
+
+
 	//// SHARES FACEBOOK
 	#if UNITY_ANDROID
 
 	void Update(){
+
+//		Debug.Log(PlayerPrefs.GetString ("IdFacebook"));
+//		Debug.Log(PlayerPrefs.GetString ("IdPlayer"));
+//		Debug.Log("C1 :"+PlayerPrefs.GetString ("c1"));
+//		Debug.Log("C2 :"+PlayerPrefs.GetString ("c2"));
+//		Debug.Log("C3 :"+PlayerPrefs.GetString ("c3"));
+//		Debug.Log("C4 :"+PlayerPrefs.GetString ("c4"));
+
+
 		int CartasShares;
 		CartasShares = PlayerPrefs.GetInt("ShareCarta");
 		switch (CartasShares) {

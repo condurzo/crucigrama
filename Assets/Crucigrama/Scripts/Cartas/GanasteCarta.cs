@@ -14,9 +14,9 @@ public class GanasteCarta : MonoBehaviour {
 	public Button AceptarBtn;
 	public Sprite AceptarON;
 
-	public int Random1;
-	public int Random2;
-	public int Random3;
+	public static int Random1;
+	public static int Random2;
+	public static int Random3;
 
 	public GameObject Home;
 	public GameObject CrucigramaSeccion;
@@ -36,18 +36,22 @@ public class GanasteCarta : MonoBehaviour {
 			PlayerPrefs.SetInt ("Reinicie", 0);
 		}
 
-		Random1 = UnityEngine.Random.Range (0, 22);
-		Random2 = UnityEngine.Random.Range (0, 22);
-		Random3 = UnityEngine.Random.Range (0, 22);
+		if (PlayerPrefs.GetString ("c4") == "0") {
+			Random1 = UnityEngine.Random.Range (0, 22);
+			Random2 = UnityEngine.Random.Range (0, 22);
+			Random3 = UnityEngine.Random.Range (0, 22);
 
-		Chekeador1 ();
-		Chekeador2 ();
-		Chekeador3 ();
+		}
+
+		//Chekeador1 ();
+		//Chekeador2 ();
+		//Chekeador3 ();
+
 	}
 
 	//Carta 1
 	public void DarVueltaCarta1 () {
-		if (PlayerPrefs.GetInt ("DarVuelta1")==0) {
+		//if (PlayerPrefs.GetInt ("DarVuelta1")==0) {
 			switch (Random1) {
 			case 0:
 				Carta1.GetComponent<Image> ().sprite = CartasChicas [22];
@@ -182,13 +186,13 @@ public class GanasteCarta : MonoBehaviour {
 				PlayerPrefs.SetInt("Carta21", 1);
 				break;
 
-			}
+			//}
 		}
 	}
 
 	//Carta 2
 	public void DarVueltaCarta2 () {
-		if (PlayerPrefs.GetInt ("DarVuelta2")==0) {
+		//if (PlayerPrefs.GetInt ("DarVuelta2")==0) {
 			switch (Random2) {
 			case 0:
 				Carta2.GetComponent<Image> ().sprite = CartasChicas [22];
@@ -323,13 +327,13 @@ public class GanasteCarta : MonoBehaviour {
 				PlayerPrefs.SetInt("Carta21", 1);
 				break;
 
-			}
+			//}
 		}
 	}
 
 	//Carta 3
 	public void DarVueltaCarta3 () {
-		if (PlayerPrefs.GetInt ("DarVuelta3")==0) {
+		//if (PlayerPrefs.GetInt ("DarVuelta3")==0) {
 			switch (Random3) {
 			case 0:
 				Carta3.GetComponent<Image> ().sprite = CartasChicas [22];
@@ -464,7 +468,7 @@ public class GanasteCarta : MonoBehaviour {
 				PlayerPrefs.SetInt("Carta21", 1);
 				break;
 
-			}
+			//}
 		}
 	}
 
@@ -694,21 +698,23 @@ public class GanasteCarta : MonoBehaviour {
 	}
 
 	void Randons(){
-		if (Random2 == Random1) {
-			Random2 = UnityEngine.Random.Range (0, 22);
-			return;
+		if (PlayerPrefs.GetString ("c4") == "0") {
+			if (Random2 == Random1) {
+				Random2 = UnityEngine.Random.Range (0, 22);
+				return;
+			}
+			if (Random3 == Random2) {
+				Random2 = UnityEngine.Random.Range (0, 22);
+				return;
+			}
+			if (Random3 == Random1) {
+				Random3 = UnityEngine.Random.Range (0, 22);
+				return;
+			}
+			PlayerPrefs.SetInt ("Random1", Random1);
+			PlayerPrefs.SetInt ("Random2", Random2);
+			PlayerPrefs.SetInt ("Random3", Random3);
 		}
-		if (Random3 == Random2) {
-			Random2 = UnityEngine.Random.Range (0, 22);
-			return;
-		}
-		if (Random3 == Random1) {
-			Random3 = UnityEngine.Random.Range (0, 22);
-			return;
-		}
-		PlayerPrefs.SetInt ("Random1", Random1);
-		PlayerPrefs.SetInt ("Random2", Random2);
-		PlayerPrefs.SetInt ("Random3", Random3);
 	}
 
 	void Update () {
@@ -733,6 +739,18 @@ public class GanasteCarta : MonoBehaviour {
 		PlayerPrefs.SetInt ("Random3", 25);
 		PlayerPrefs.SetInt ("EnvieDatos", 0);
 		PlayerPrefs.SetInt ("Reinicie", 1);
+
+		//poner los C en 0
+		string idTemp = PlayerPrefs.GetString ("IdPlayer");
+		string c1Temp = PlayerPrefs.GetString ("c1");
+		string c2Temp = PlayerPrefs.GetString ("c2");
+		string c3Temp = PlayerPrefs.GetString ("c3");
+		string url = "http://www.malditosnerds.com/crucigramas/front/jugador_carta.php?idjugador="+idTemp+"&idcarta1="+c1Temp+"&idcarta2="+c2Temp+"&idcarta3="+c3Temp+"&estado=1&idcol=9";
+		WWW www = new WWW (url);
+		PlayerPrefs.SetString ("c1","0");
+		PlayerPrefs.SetString ("c2","0");
+		PlayerPrefs.SetString ("c3","0");
+		PlayerPrefs.SetString ("c4","0");
 		Application.LoadLevel ("Home");
 	}
 }

@@ -4,7 +4,8 @@ using UnityEngine.UI;
 
 public class CartasManager : MonoBehaviour {
 
-    public GameObject CartaShow;
+	public GameObject CartaShow; 
+
 	public GameObject CartaShowGanaste;
 
     public Image CartaGrande;
@@ -80,6 +81,18 @@ public class CartasManager : MonoBehaviour {
 	public Sprite CartaC21;
 
 	void Start(){
+			if (PlayerPrefs.GetString ("c4") == "1") {
+				string c1 = PlayerPrefs.GetString ("c1");
+				string c2 = PlayerPrefs.GetString ("c2");
+				string c3 = PlayerPrefs.GetString ("c3");
+
+				GanasteCarta.Random1 = System.Int32.Parse (c1);
+				GanasteCarta.Random2 = System.Int32.Parse (c2);
+				GanasteCarta.Random3 = System.Int32.Parse (c3);
+				CartaShowGanaste.SetActive (true);
+
+		}
+
 
 		if (PlayerPrefs.GetInt ("MostrarCartaShow") == 1) {
 			CartaShowGanaste.SetActive (true);

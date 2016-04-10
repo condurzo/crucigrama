@@ -158,7 +158,7 @@ public class Parser : MonoBehaviour {
 		Debug.Log ("registre usuario: " + nom_jugador);
         Debug.Log("URL " + url);
 		ObtenerIDCorutine ();
-		//PlayerPrefs.SetInt ("Registrado", 1);
+		PlayerPrefs.SetInt ("Registrado", 1);
 	}
 		
 	IEnumerator ObtenerID(string IDFace){
@@ -193,9 +193,9 @@ public class Parser : MonoBehaviour {
 		playerstate.c3 = jsonEstadoJugador ["jugador"][0]["c3"].ToString();
 		playerstate.c4 = jsonEstadoJugador ["jugador"][0]["c4"].ToString();
 		PlayerPrefs.SetString ("c1",playerstate.c1);
-		PlayerPrefs.SetString ("c2",playerstate.c1);
-		PlayerPrefs.SetString ("c3",playerstate.c1);
-		PlayerPrefs.SetString ("c4",playerstate.c1);
+		PlayerPrefs.SetString ("c2",playerstate.c2);
+		PlayerPrefs.SetString ("c3",playerstate.c3);
+		PlayerPrefs.SetString ("c4",playerstate.c4);
 	}
 
 //	public void EstadoJugadorCorutine(){
