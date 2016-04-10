@@ -13,6 +13,7 @@ public class Parser : MonoBehaviour {
 	public static Parser instance;
 	private string idsocial;
 	public static string idplayer;
+	public static EstadoJugador playerstate;
 	public string IdTemp;
 	/*/
 	ORDEN
@@ -34,7 +35,7 @@ public class Parser : MonoBehaviour {
 
 	void Update(){
 		if(Input.GetKeyUp(KeyCode.A)){
-			Debug.Log(GetVersion());
+			ObtenerEstadoJugador("53");
 		}
 	}
 
@@ -175,22 +176,26 @@ public class Parser : MonoBehaviour {
 		StartCoroutine(ObtenerID(IdTemp));
 	}
 
-	public EstadoJugador EstadoJugadorObtener(string IDplayer){
+	public void ObtenerEstadoJugador(string id){
+		StartCoroutine(EstadoJugadorObtener(id));
+	}
+
+	IEnumerator EstadoJugadorObtener(string IDplayer){
 		string urlE = "http://www.malditosnerds.com/crucigramas/front/cartasactivas.php?idjugador=" + IDplayer;
 		WWW www = new WWW (urlE);
-		EstadoJugador estJug = new EstadoJugador ();
-		while(www.isDone){
+		yield return www;
 		string txtEstJug = www.text;
 		JsonData jsonEstadoJugador = JsonMapper.ToObject (txtEstJug);
-			estJug.id = jsonEstadoJugador ["jugador"] [0] ["id"].ToString();
-			estJug.c1 = jsonEstadoJugador ["jugador"] [0] ["c1"].ToString();
-			estJug.c2 = jsonEstadoJugador ["jugador"] [0] ["c2"].ToString();
-			estJug.c3 = jsonEstadoJugador ["jugador"] [0] ["c3"].ToString();
-			estJug.c4 = jsonEstadoJugador ["jugador"] [0] ["c4"].ToString();
-		}
-		Debug.Log ("C1: " + estJug.c1);
-		return estJug;
-
+		playerstate=new EstadoJugador();
+		playerstate.id = jsonEstadoJugador ["jugador"][0]["id"].ToString();
+		playerstate.c1 = jsonEstadoJugador ["jugador"][0]["c1"].ToString();
+		playerstate.c2 = jsonEstadoJugador ["jugador"][0]["c2"].ToString();
+		playerstate.c3 = jsonEstadoJugador ["jugador"][0]["c3"].ToString();
+		playerstate.c4 = jsonEstadoJugador ["jugador"][0]["c4"].ToString();
+		PlayerPrefs.SetString ("c1",playerstate.c1);
+		PlayerPrefs.SetString ("c2",playerstate.c1);
+		PlayerPrefs.SetString ("c3",playerstate.c1);
+		PlayerPrefs.SetString ("c4",playerstate.c1);
 	}
 
 //	public void EstadoJugadorCorutine(){
