@@ -28,8 +28,6 @@ public class FBscript : MonoBehaviour{
 			LoginPopup.SetActive (true);
 		}
 
-	
-
     }
 
 	void ExitApp(){
@@ -57,7 +55,6 @@ public class FBscript : MonoBehaviour{
         List<string> permissions = new List<string>();
         permissions.Add("public_profile");
         FB.LogInWithReadPermissions(permissions, AuthCallBack);
-		Application.LoadLevel ("Home");
     }
 
     public void FBLogout(){
@@ -117,7 +114,6 @@ public class FBscript : MonoBehaviour{
 			Parser.instance.ObtenerIDCorutine ();
 			Parser.instance.RegistrarUsuario (idFB, UserName.text, mail);
 			BajarCartar ();
-
         }
         else {
             Debug.Log(result.Error);
