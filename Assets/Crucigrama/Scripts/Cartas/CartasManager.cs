@@ -80,8 +80,12 @@ public class CartasManager : MonoBehaviour {
 	public Sprite CartaC20;
 	public Sprite CartaC21;
 
-	void Start(){
-			if (PlayerPrefs.GetString ("c4") == "1") {
+	public bool Activador;
+
+	void Update(){
+		
+		if (PlayerPrefs.GetString ("c4") == "1") {
+			
 				string c1 = PlayerPrefs.GetString ("c1");
 				string c2 = PlayerPrefs.GetString ("c2");
 				string c3 = PlayerPrefs.GetString ("c3");
@@ -92,7 +96,9 @@ public class CartasManager : MonoBehaviour {
 				CartaShowGanaste.SetActive (true);
 
 		}
+	}
 
+	void Start(){
 
 		if (PlayerPrefs.GetInt ("MostrarCartaShow") == 1) {
 			CartaShowGanaste.SetActive (true);

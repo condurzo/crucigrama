@@ -5,7 +5,6 @@ public class ShowCartasTemp : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
 			if (PlayerPrefs.GetString ("c4") == "0") {
 				if (PlayerPrefs.GetInt ("EnvieDatos") == 0) {
 					string idJugador = PlayerPrefs.GetString ("IdPlayer");
@@ -18,7 +17,6 @@ public class ShowCartasTemp : MonoBehaviour {
 					Debug.Log (url);
 					Invoke ("NoMostrar", 3);
 				}
-
 		}
 	}
 	

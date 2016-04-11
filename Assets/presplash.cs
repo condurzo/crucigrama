@@ -10,6 +10,8 @@ public class presplash : MonoBehaviour {
 	}
 
 	void Cambiar(){
-		Application.LoadLevel(escena);
+		
+			Application.LoadLevel (escena);
+
 	}
 }

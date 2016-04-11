@@ -28,12 +28,8 @@ public class FBscript : MonoBehaviour{
 			LoginPopup.SetActive (true);
 		}
 
-//		PlayerPrefs.SetString ("IdFacebook", "a");
-//		PlayerPrefs.SetString ("IdPlayer", "a");
-//		PlayerPrefs.SetString ("c1","a");
-//		PlayerPrefs.SetString ("c2","a");
-//		PlayerPrefs.SetString ("c3","a");
-//		PlayerPrefs.SetString ("c4","a");
+	
+
     }
 
 	void ExitApp(){
@@ -61,6 +57,7 @@ public class FBscript : MonoBehaviour{
         List<string> permissions = new List<string>();
         permissions.Add("public_profile");
         FB.LogInWithReadPermissions(permissions, AuthCallBack);
+		Application.LoadLevel ("Home");
     }
 
     public void FBLogout(){
@@ -77,6 +74,7 @@ public class FBscript : MonoBehaviour{
 			PlayerPrefs.SetString ("c3","a");
 			PlayerPrefs.SetString ("c4","a");
 			PlayerPrefs.SetInt ("Registrado", 0);
+			PlayerPrefs.SetInt ("SetearCosas", 0);
 			Application.LoadLevel ("PreSplash");
 			Debug.Log ("Cerre Sesion");
 		}
@@ -119,6 +117,7 @@ public class FBscript : MonoBehaviour{
 			Parser.instance.ObtenerIDCorutine ();
 			Parser.instance.RegistrarUsuario (idFB, UserName.text, mail);
 			BajarCartar ();
+
         }
         else {
             Debug.Log(result.Error);

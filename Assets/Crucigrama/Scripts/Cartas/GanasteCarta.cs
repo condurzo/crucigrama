@@ -739,6 +739,9 @@ public class GanasteCarta : MonoBehaviour {
 		PlayerPrefs.SetInt ("Random3", 25);
 		PlayerPrefs.SetInt ("EnvieDatos", 0);
 		PlayerPrefs.SetInt ("Reinicie", 1);
+		PlayerPrefs.SetInt ("SetearCosas", 0);
+		PlayerPrefs.SetInt ("SetearCosas2", 0);
+		PlayerPrefs.SetInt ("SetearCosas3", 0);
 
 		//poner los C en 0
 		string idTemp = PlayerPrefs.GetString ("IdPlayer");
