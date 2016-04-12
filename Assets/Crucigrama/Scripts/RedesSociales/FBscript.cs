@@ -17,11 +17,18 @@ public class FBscript : MonoBehaviour{
 	public String url; 
 	public GameObject LoginPopup;
 
+	void OnGUI(){
+		GUI.TextArea(new Rect(Screen.width/2,Screen.height/2,100,20),PlayerPrefs.GetString ("c1"));
+		GUI.TextArea(new Rect(Screen.width/2,(Screen.height/2)+20,100,20),PlayerPrefs.GetString ("c2"));
+		GUI.TextArea(new Rect(Screen.width/2,(Screen.height/2)+40,100,20),PlayerPrefs.GetString ("c3"));
+		GUI.TextArea(new Rect(Screen.width/2,(Screen.height/2)+60,100,20),PlayerPrefs.GetString ("c4"));
+	}
+
     void Start(){
         FB.Init(SetInit, OnHideUnity);
 
 		if ((PlayerPrefs.GetInt ("Registrado") == 1)) {
-			if (PlayerPrefs.GetString ("c4") == "a") {
+			if ((PlayerPrefs.GetString ("c4") == "a")||(PlayerPrefs.GetString ("c4") == "")) {
 				BajarCartar ();
 			}
 		} else {
@@ -124,7 +131,6 @@ public class FBscript : MonoBehaviour{
 		string idTemp = PlayerPrefs.GetString ("IdPlayer");
 		Debug.Log("IDTEMP: "+idTemp);
 		Parser.instance.ObtenerEstadoJugador(idTemp);
-		//esto ya guarda en playerprefs el c1.c2.c3.c4...
 		Debug.Log("C1 :"+PlayerPrefs.GetString ("c1"));
 		Debug.Log("C2 :"+PlayerPrefs.GetString ("c2"));
 		Debug.Log("C3 :"+PlayerPrefs.GetString ("c3"));
