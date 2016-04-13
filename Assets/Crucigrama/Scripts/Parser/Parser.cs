@@ -133,6 +133,8 @@ public class Parser : MonoBehaviour {
 		cru.resuelto = jsondatas[1] ["crucigramas"] [num] ["resuelto"].ToString ();
 		cru.fecha = jsondatas[1] ["crucigramas"] [num] ["fecha"].ToString ();
 		cru.numpremios = jsondatas[1] ["crucigramas"] [num] ["numpremios"].ToString ();
+		cru.imagenurl = jsondatas[1] ["crucigramas"] [num] ["imagen"].ToString ();
+		cru.thumburl = jsondatas[1] ["crucigramas"] [num] ["thumb"].ToString ();
 		List<Palabra> palabras = new List<Palabra> ();
 		for (int j = 0; j < jsondatas[1] ["crucigramas"] [num] ["palabras"].Count; j++) {
 			Palabra pal = new Palabra ();
@@ -238,6 +240,8 @@ public class Parser : MonoBehaviour {
 			cru.nombre = jsondatas[1] ["crucigramas"] [i] ["nombre"].ToString ();
 			cru.estado = jsondatas[1] ["crucigramas"] [i] ["estado"].ToString ();
 			cru.fecha = jsondatas[1] ["crucigramas"] [i] ["fecha"].ToString ();
+			cru.imagenurl = jsondatas[1] ["crucigramas"] [i] ["imagen"].ToString ();
+			cru.thumburl = jsondatas[1] ["crucigramas"] [i] ["thumb"].ToString ();
 			List<Palabra> palabras = new List<Palabra> ();
 			for (int j = 0; j < jsondatas[1] ["crucigramas"] [i] ["palabras"].Count; j++) {
 				Palabra pal = new Palabra ();
