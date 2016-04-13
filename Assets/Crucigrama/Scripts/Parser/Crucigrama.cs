@@ -8,5 +8,7 @@ public class Crucigrama{
 	public string resuelto;
 	public string fecha;
 	public string numpremios;
+	public string imagenurl;
+	public string thumburl;
 	public Palabra[] palabras;
 }
