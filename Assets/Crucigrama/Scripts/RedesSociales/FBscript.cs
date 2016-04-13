@@ -37,8 +37,13 @@ public class FBscript : MonoBehaviour{
 
     }
 
-	void ExitApp(){
-		Application.Quit ();
+	public void ExitApp(){
+		if((Application.platform==RuntimePlatform.WindowsEditor)||(Application.platform==RuntimePlatform.OSXEditor)){
+			LoginPopup.SetActive(false);
+			Debug.Log("CIERRO LOGIN");
+		}else{
+			Application.Quit ();
+		}
 	}
 
     void SetInit(){
