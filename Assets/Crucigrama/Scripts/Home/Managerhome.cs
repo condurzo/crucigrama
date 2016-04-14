@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using System;
 using System.Linq;
+using System.Collections;
 
 public class Managerhome : MonoBehaviour {
 	public static Managerhome instance;
@@ -24,6 +25,8 @@ public class Managerhome : MonoBehaviour {
 	public GameObject Enviando;
 	public GameObject Errores;
 	public Text ErroresText;
+	public Image fondocruci;
+	private string urlimagen;
 
 	void Awake (){
 		palabraescribiendo=0;
@@ -74,7 +77,8 @@ public class Managerhome : MonoBehaviour {
 			grid.Actualizar();
 		}
 		Cruciactual = Parser.instance.GetCrossword (id);
-
+		urlimagen=Cruciactual.imagenurl;
+		StartCoroutine("CargarImagen");
 		for (int i = 0; i < Cruciactual.palabras.Length; i++) {
 			//if(Cruciactual.palabras[i].estado=="1"){
 			if(Cruciactual.resuelto == "1"){
@@ -147,6 +151,15 @@ public class Managerhome : MonoBehaviour {
 			ErroresText.text = incorrectas.ToString ();
 			Debug.Log("Incorrectas: "+incorrectas.ToString());
 		}
+	}
+
+	IEnumerator CargarImagen() {
+		WWW www = new WWW(urlimagen);
+		// Wait for download to complete
+		yield return www;
+		Texture2D textura=www.texture;
+		Sprite spri=Sprite.Create(textura,new Rect(0,0,textura.width,textura.height),new Vector2(0.5f,0.5f));
+		fondocruci.sprite=spri;
 	}
 
 	public void Teclado(string charr){
