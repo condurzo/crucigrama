@@ -197,6 +197,10 @@ public class FBscript : MonoBehaviour{
 //		Debug.Log("C2 :"+PlayerPrefs.GetString ("c2"));
 //		Debug.Log("C3 :"+PlayerPrefs.GetString ("c3"));
 //		Debug.Log("C4 :"+PlayerPrefs.GetString ("c4"));
+		Debug.Log(PlayerPrefs.GetString ("idColeccionActiva"));
+		Debug.Log(PlayerPrefs.GetString ("idCrucigramaVigente"));
+		Debug.Log(PlayerPrefs.GetString ("premiosDisponiblesColeccion"));
+		Debug.Log(PlayerPrefs.GetString ("premiosDisponiblesCrcigramas"));
 
 
 		int CartasShares;
