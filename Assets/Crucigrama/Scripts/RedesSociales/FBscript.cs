@@ -20,7 +20,6 @@ public class FBscript : MonoBehaviour{
 
     void Start(){
         FB.Init(SetInit, OnHideUnity);
-
 		if ((PlayerPrefs.GetInt ("Registrado") == 1)) {
 			if ((PlayerPrefs.GetString ("c4") == "a")||(PlayerPrefs.GetString ("c4") == "")) {
 				BajarCartar ();
@@ -197,11 +196,8 @@ public class FBscript : MonoBehaviour{
 //		Debug.Log("C2 :"+PlayerPrefs.GetString ("c2"));
 //		Debug.Log("C3 :"+PlayerPrefs.GetString ("c3"));
 //		Debug.Log("C4 :"+PlayerPrefs.GetString ("c4"));
-		Debug.Log(PlayerPrefs.GetString ("idColeccionActiva"));
-		Debug.Log(PlayerPrefs.GetString ("idCrucigramaVigente"));
-		Debug.Log(PlayerPrefs.GetString ("premiosDisponiblesColeccion"));
-		Debug.Log(PlayerPrefs.GetString ("premiosDisponiblesCrcigramas"));
 
+//
 
 		int CartasShares;
 		CartasShares = PlayerPrefs.GetInt("ShareCarta");

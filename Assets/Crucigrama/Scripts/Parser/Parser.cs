@@ -201,26 +201,26 @@ public class Parser : MonoBehaviour {
 		PlayerPrefs.SetString ("c4",playerstate.c4);
 	}
 
-//	public void PremiosDisp(){
-//		StartCoroutine(PremiosDisponiblesCoroutine());
-//	}
-//
-//	IEnumerator PremiosDisponiblesCoroutine(){
-//		string urlE = "http://malditosnerds.com/crucigramas/front/j_premios_disponibles.php";
-//		WWW www = new WWW (urlE);
-//		yield return www;
-//		string txtPreDis = www.text;
-//		JsonData jsonPremioDisponible = JsonMapper.ToObject (txtPreDis);
-//		Disponibles=new PremiosDisponibles();
-//		Disponibles.idColeccionActiva = jsonPremioDisponible [""][0]["id coleccion Activa"].ToString();
-//		Disponibles.idCrucigramaVigente = jsonPremioDisponible [""][0]["id Crucigrama Vigente"].ToString();
-//		Disponibles.PremiosDispColeccion = jsonPremioDisponible [""][0]["premios disponibles coleccion"].ToString();
-//		Disponibles.PremiosDispCrucigramas = jsonPremioDisponible [""][0]["premios disponibles crcigramas"].ToString();
-//		PlayerPrefs.SetString ("idColeccionActiva",Disponibles.idColeccionActiva);
-//		PlayerPrefs.SetString ("idCrucigramaVigente",Disponibles.idCrucigramaVigente);
-//		PlayerPrefs.SetString ("premiosDisponiblesColeccion",Disponibles.PremiosDispColeccion);
-//		PlayerPrefs.SetString ("premiosDisponiblesCrcigramas",Disponibles.PremiosDispCrucigramas);
-//	}
+	public void PremiosDisp(){
+		StartCoroutine(PremiosDisponiblesCoroutine());
+	}
+
+	IEnumerator PremiosDisponiblesCoroutine(){
+		string urlE = "http://malditosnerds.com/crucigramas/front/j_premios_disponibles.php";
+		WWW www = new WWW (urlE);
+		yield return www;
+		string txtPreDis = www.text;
+		JsonData jsonPremioDisponible = JsonMapper.ToObject (txtPreDis);
+		Disponibles=new PremiosDisponibles();
+		Disponibles.idColeccionActiva = jsonPremioDisponible ["PremiosDisp"][0]["id_colActiva"].ToString();
+		Disponibles.idCrucigramaVigente = jsonPremioDisponible ["PremiosDisp"][0]["id_cruciVigente"].ToString();
+		Disponibles.PremiosDispColeccion = jsonPremioDisponible ["PremiosDisp"][0]["premiosDispCol"].ToString();
+		Disponibles.PremiosDispCrucigramas = jsonPremioDisponible ["PremiosDisp"][0]["premiosDispCruci"].ToString();
+		PlayerPrefs.SetString ("idColeccionActiva",Disponibles.idColeccionActiva);
+		PlayerPrefs.SetString ("idCrucigramaVigente",Disponibles.idCrucigramaVigente);
+		PlayerPrefs.SetString ("premiosDisponiblesColeccion",Disponibles.PremiosDispColeccion);
+		PlayerPrefs.SetString ("premiosDisponiblesCrcigramas",Disponibles.PremiosDispCrucigramas);
+	}
 
 	public List<Jugador> Ranking(string idcrucigrama,string idjugador){
 		string url = "http://www.malditosnerds.com/crucigramas/front/ranking_cruci2.php?idcruci="+idcrucigrama+"&idjugador="+idjugador;
