@@ -32,11 +32,12 @@ public class Parser : MonoBehaviour {
 		}
 		//cargamos todos los json y los guardamos para no tener que ir cambiando
 		StartCoroutine ("GetJsons");
+
 	}
 
 	void Update(){
-		if(Input.GetKeyUp(KeyCode.A)){
-			ObtenerEstadoJugador("53");
+		if(Input.GetKeyDown(KeyCode.A)){
+			ObtenerProgreso("53");
 		}
 	}
 
@@ -181,6 +182,26 @@ public class Parser : MonoBehaviour {
 
 	public void ObtenerEstadoJugador(string id){
 		StartCoroutine(EstadoJugadorObtener(id));
+	}
+
+	public void ObtenerProgreso(string id){
+		StartCoroutine(Progreso(id));
+	}
+
+	IEnumerator Progreso(string id){
+		string urlE = "http://malditosnerds.com/crucigramas/front/jugador.php?idjugador=" + id;
+		WWW www = new WWW (urlE);
+		yield return www;
+		string txtEstJug = www.text;
+		JsonData jsonProgreso = JsonMapper.ToObject (txtEstJug);
+		for(int i=0;i<jsonProgreso["cartas"].Count;i++){
+			PlayerPrefs.SetString("Carta"+jsonProgreso["cartas"][i]["id_carta"].ToString(),jsonProgreso["cartas"][i]["asignada"].ToString());
+			Debug.Log("Carta"+jsonProgreso["cartas"][i]["id_carta"].ToString()+"________"+jsonProgreso["cartas"][i]["asignada"].ToString());
+		}
+		for(int i=0;i<jsonProgreso["crucigramas"].Count;i++){
+			PlayerPrefs.SetString("Crucigrama"+jsonProgreso["crucigramas"][i]["idcrucigrama"].ToString(),jsonProgreso["crucigramas"][i]["resuelto"].ToString());
+			Debug.Log("Crucigrama"+jsonProgreso["crucigramas"][i]["idcrucigrama"].ToString()+"_______"+jsonProgreso["crucigramas"][i]["resuelto"].ToString());
+		}
 	}
 
 	IEnumerator EstadoJugadorObtener(string IDplayer){
