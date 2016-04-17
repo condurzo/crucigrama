@@ -99,6 +99,7 @@ public class CartasManager : MonoBehaviour {
 	}
 
 	void Start(){
+		
 
 		if (PlayerPrefs.GetInt ("MostrarCartaShow") == 1) {
 			CartaShowGanaste.SetActive (true);
@@ -107,31 +108,31 @@ public class CartasManager : MonoBehaviour {
         if (PlayerPrefs.GetInt("Carta22") == 0){
             _Carta22.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta01") == 0){
+        if (PlayerPrefs.GetInt("Carta1") == 0){
             _Carta01.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta02") == 0){
+        if (PlayerPrefs.GetInt("Carta2") == 0){
             _Carta02.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta03") == 0){
+        if (PlayerPrefs.GetInt("Carta3") == 0){
             _Carta03.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta04") == 0){
+        if (PlayerPrefs.GetInt("Carta4") == 0){
             _Carta04.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta05") == 0){
+        if (PlayerPrefs.GetInt("Carta5") == 0){
             _Carta05.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta06") == 0){
+        if (PlayerPrefs.GetInt("Carta6") == 0){
             _Carta06.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta07") == 0){
+        if (PlayerPrefs.GetInt("Carta7") == 0){
             _Carta07.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta08") == 0){
+        if (PlayerPrefs.GetInt("Carta8") == 0){
             _Carta08.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta09") == 0){
+        if (PlayerPrefs.GetInt("Carta9") == 0){
             _Carta09.GetComponent<Image>().sprite = CartaDorso;
         }
         if (PlayerPrefs.GetInt("Carta10") == 0){
@@ -179,31 +180,31 @@ public class CartasManager : MonoBehaviour {
 		if (PlayerPrefs.GetInt("Carta22") == 1){
 			_Carta22.GetComponent<Image>().sprite = CartaC22;
 		}
-		if (PlayerPrefs.GetInt("Carta01") == 1){
+		if (PlayerPrefs.GetInt("Carta1") == 1){
 			_Carta01.GetComponent<Image>().sprite = CartaC01;
 		}
-		if (PlayerPrefs.GetInt("Carta02") == 1){
+		if (PlayerPrefs.GetInt("Carta2") == 1){
 			_Carta02.GetComponent<Image>().sprite = CartaC02;
 		}
-		if (PlayerPrefs.GetInt("Carta03") == 1){
+		if (PlayerPrefs.GetInt("Carta3") == 1){
 			_Carta03.GetComponent<Image>().sprite = CartaC03;
 		}
-		if (PlayerPrefs.GetInt("Carta04") == 1){
+		if (PlayerPrefs.GetInt("Carta4") == 1){
 			_Carta04.GetComponent<Image>().sprite = CartaC04;
 		}
-		if (PlayerPrefs.GetInt("Carta05") == 1){
+		if (PlayerPrefs.GetInt("Carta5") == 1){
 			_Carta05.GetComponent<Image>().sprite = CartaC05;
 		}
-		if (PlayerPrefs.GetInt("Carta06") == 1){
+		if (PlayerPrefs.GetInt("Carta6") == 1){
 			_Carta06.GetComponent<Image>().sprite = CartaC06;
 		}
-		if (PlayerPrefs.GetInt("Carta07") == 1){
+		if (PlayerPrefs.GetInt("Carta7") == 1){
 			_Carta07.GetComponent<Image>().sprite = CartaC07;
 		}
-		if (PlayerPrefs.GetInt("Carta08") == 1){
+		if (PlayerPrefs.GetInt("Carta8") == 1){
 			_Carta08.GetComponent<Image>().sprite = CartaC08;
 		}
-		if (PlayerPrefs.GetInt("Carta09") == 1){
+		if (PlayerPrefs.GetInt("Carta9") == 1){
 			_Carta09.GetComponent<Image>().sprite = CartaC09;
 		}
 		if (PlayerPrefs.GetInt("Carta10") == 1){
@@ -253,63 +254,63 @@ public class CartasManager : MonoBehaviour {
         }
 	}
     public void CartaGrande01(){
-        if (PlayerPrefs.GetInt("Carta01") == 1){
+        if (PlayerPrefs.GetInt("Carta1") == 1){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta01;
 			PlayerPrefs.SetInt ("ShareCarta", 01);
         }
     }
     public void CartaGrande02(){
-        if (PlayerPrefs.GetInt("Carta02") == 1){
+        if (PlayerPrefs.GetInt("Carta2") == 1){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta02;
 			PlayerPrefs.SetInt ("ShareCarta", 02);
         }
     }
     public void CartaGrande03(){
-        if (PlayerPrefs.GetInt("Carta03") == 1){
+        if (PlayerPrefs.GetInt("Carta3") == 1){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta03;
 			PlayerPrefs.SetInt ("ShareCarta", 03);
         }
     }
     public void CartaGrande04(){
-        if (PlayerPrefs.GetInt("Carta04") == 1){
+        if (PlayerPrefs.GetInt("Carta4") == 1){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta04;
 			PlayerPrefs.SetInt ("ShareCarta", 04);
         }
     }
     public void CartaGrande05(){
-        if (PlayerPrefs.GetInt("Carta05") == 1){
+        if (PlayerPrefs.GetInt("Carta5") == 1){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta05;
 			PlayerPrefs.SetInt ("ShareCarta", 05);
         }
     }
     public void CartaGrande06(){
-        if (PlayerPrefs.GetInt("Carta06") == 1){
+        if (PlayerPrefs.GetInt("Carta6") == 1){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta06;
 			PlayerPrefs.SetInt ("ShareCarta", 06);
         }
     }
     public void CartaGrande07(){
-        if (PlayerPrefs.GetInt("Carta07") == 1){
+        if (PlayerPrefs.GetInt("Carta7") == 1){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta07;
 			PlayerPrefs.SetInt ("ShareCarta", 07);
         }
     }
     public void CartaGrande08(){
-        if (PlayerPrefs.GetInt("Carta08") == 1){
+        if (PlayerPrefs.GetInt("Carta8") == 1){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta08;
 			PlayerPrefs.SetInt ("ShareCarta", 08);
         }
     }
     public void CartaGrande09(){
-        if (PlayerPrefs.GetInt("Carta09") == 1){
+        if (PlayerPrefs.GetInt("Carta9") == 1){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta09;
 			PlayerPrefs.SetInt ("ShareCarta", 09);

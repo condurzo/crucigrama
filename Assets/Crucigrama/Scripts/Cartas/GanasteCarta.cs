@@ -63,55 +63,55 @@ public class GanasteCarta : MonoBehaviour {
 				Carta1.GetComponent<Image> ().sprite = CartasChicas [1];
 				PlayerPrefs.SetInt ("DarVuelta1", 1);
 				PlayerPrefs.SetInt ("Ganada1", 1);
-				PlayerPrefs.SetInt("Carta01", 1);
+				PlayerPrefs.SetInt("Carta1", 1);
 				break;
 			case 2:
 				Carta1.GetComponent<Image> ().sprite = CartasChicas [2];
 				PlayerPrefs.SetInt ("DarVuelta1", 1);
 				PlayerPrefs.SetInt ("Ganada1", 2);
-				PlayerPrefs.SetInt("Carta02", 1);
+				PlayerPrefs.SetInt("Carta2", 1);
 				break;
 			case 3:
 				Carta1.GetComponent<Image> ().sprite = CartasChicas [3];
 				PlayerPrefs.SetInt ("DarVuelta1", 1);
 				PlayerPrefs.SetInt ("Ganada1", 3);
-				PlayerPrefs.SetInt("Carta03", 1);
+				PlayerPrefs.SetInt("Carta3", 1);
 				break;
 			case 4:
 				Carta1.GetComponent<Image> ().sprite = CartasChicas [4];
 				PlayerPrefs.SetInt ("DarVuelta1", 1);
 				PlayerPrefs.SetInt ("Ganada1", 4);
-				PlayerPrefs.SetInt("Carta04", 1);
+				PlayerPrefs.SetInt("Carta4", 1);
 				break;
 			case 5:
 				Carta1.GetComponent<Image> ().sprite = CartasChicas [5];
 				PlayerPrefs.SetInt ("DarVuelta1", 1);
 				PlayerPrefs.SetInt ("Ganada1", 5);
-				PlayerPrefs.SetInt("Carta05", 1);
+				PlayerPrefs.SetInt("Carta5", 1);
 				break;
 			case 6:
 				Carta1.GetComponent<Image> ().sprite = CartasChicas [6];
 				PlayerPrefs.SetInt ("DarVuelta1", 1);
 				PlayerPrefs.SetInt ("Ganada1", 6);
-				PlayerPrefs.SetInt("Carta06", 1);
+				PlayerPrefs.SetInt("Carta6", 1);
 				break;
 			case 7:
 				Carta1.GetComponent<Image> ().sprite = CartasChicas [7];
 				PlayerPrefs.SetInt ("DarVuelta1", 1);
 				PlayerPrefs.SetInt ("Ganada1", 7);
-				PlayerPrefs.SetInt("Carta07", 1);
+				PlayerPrefs.SetInt("Carta7", 1);
 				break;
 			case 8:
 				Carta1.GetComponent<Image> ().sprite = CartasChicas [8];
 				PlayerPrefs.SetInt ("DarVuelta1", 1);
 				PlayerPrefs.SetInt ("Ganada1", 8);
-				PlayerPrefs.SetInt("Carta08", 1);
+				PlayerPrefs.SetInt("Carta8", 1);
 				break;
 			case 9:
 				Carta1.GetComponent<Image> ().sprite = CartasChicas [9];
 				PlayerPrefs.SetInt ("DarVuelta1", 1);
 				PlayerPrefs.SetInt ("Ganada1", 9);
-				PlayerPrefs.SetInt("Carta09", 1);
+				PlayerPrefs.SetInt("Carta9", 1);
 				break;
 			case 10:
 				Carta1.GetComponent<Image> ().sprite = CartasChicas [10];
@@ -204,55 +204,55 @@ public class GanasteCarta : MonoBehaviour {
 				Carta2.GetComponent<Image> ().sprite = CartasChicas [1];
 				PlayerPrefs.SetInt ("DarVuelta2", 1);
 				PlayerPrefs.SetInt ("Ganada2", 1);
-				PlayerPrefs.SetInt("Carta01", 1);
+				PlayerPrefs.SetInt("Carta1", 1);
 				break;
 			case 2:
 				Carta2.GetComponent<Image> ().sprite = CartasChicas [2];
 				PlayerPrefs.SetInt ("DarVuelta2", 1);
 				PlayerPrefs.SetInt ("Ganada2", 2);
-				PlayerPrefs.SetInt("Carta02", 1);
+				PlayerPrefs.SetInt("Carta2", 1);
 				break;
 			case 3:
 				Carta2.GetComponent<Image> ().sprite = CartasChicas [3];
 				PlayerPrefs.SetInt ("DarVuelta2", 1);
 				PlayerPrefs.SetInt ("Ganada2", 3);
-				PlayerPrefs.SetInt("Carta03", 1);
+				PlayerPrefs.SetInt("Carta3", 1);
 				break;
 			case 4:
 				Carta2.GetComponent<Image> ().sprite = CartasChicas [4];
 				PlayerPrefs.SetInt ("DarVuelta2", 1);
 				PlayerPrefs.SetInt ("Ganada2", 4);
-				PlayerPrefs.SetInt("Carta04", 1);
+				PlayerPrefs.SetInt("Carta4", 1);
 				break;
 			case 5:
 				Carta2.GetComponent<Image> ().sprite = CartasChicas [5];
 				PlayerPrefs.SetInt ("DarVuelta2", 1);
 				PlayerPrefs.SetInt ("Ganada2", 5);
-				PlayerPrefs.SetInt("Carta05", 1);
+				PlayerPrefs.SetInt("Carta5", 1);
 				break;
 			case 6:
 				Carta2.GetComponent<Image> ().sprite = CartasChicas [6];
 				PlayerPrefs.SetInt ("DarVuelta2", 1);
 				PlayerPrefs.SetInt ("Ganada2", 6);
-				PlayerPrefs.SetInt("Carta06", 1);
+				PlayerPrefs.SetInt("Carta6", 1);
 				break;
 			case 7:
 				Carta2.GetComponent<Image> ().sprite = CartasChicas [7];
 				PlayerPrefs.SetInt ("DarVuelta2", 1);
 				PlayerPrefs.SetInt ("Ganada2", 7);
-				PlayerPrefs.SetInt("Carta07", 1);
+				PlayerPrefs.SetInt("Carta7", 1);
 				break;
 			case 8:
 				Carta2.GetComponent<Image> ().sprite = CartasChicas [8];
 				PlayerPrefs.SetInt ("DarVuelta2", 1);
 				PlayerPrefs.SetInt ("Ganada2", 8);
-				PlayerPrefs.SetInt("Carta08", 1);
+				PlayerPrefs.SetInt("Carta8", 1);
 				break;
 			case 9:
 				Carta2.GetComponent<Image> ().sprite = CartasChicas [9];
 				PlayerPrefs.SetInt ("DarVuelta2", 1);
 				PlayerPrefs.SetInt ("Ganada2", 9);
-				PlayerPrefs.SetInt("Carta09", 1);
+				PlayerPrefs.SetInt("Carta9", 1);
 				break;
 			case 10:
 				Carta2.GetComponent<Image> ().sprite = CartasChicas [10];
@@ -345,55 +345,55 @@ public class GanasteCarta : MonoBehaviour {
 				Carta3.GetComponent<Image> ().sprite = CartasChicas [1];
 				PlayerPrefs.SetInt ("DarVuelta3", 1);
 				PlayerPrefs.SetInt ("Ganada3", 1);
-				PlayerPrefs.SetInt("Carta01", 1);
+				PlayerPrefs.SetInt("Carta1", 1);
 				break;
 			case 2:
 				Carta3.GetComponent<Image> ().sprite = CartasChicas [2];
 				PlayerPrefs.SetInt ("DarVuelta3", 1);
 				PlayerPrefs.SetInt ("Ganada3", 2);
-				PlayerPrefs.SetInt("Carta02", 1);
+				PlayerPrefs.SetInt("Carta2", 1);
 				break;
 			case 3:
 				Carta3.GetComponent<Image> ().sprite = CartasChicas [3];
 				PlayerPrefs.SetInt ("DarVuelta3", 1);
 				PlayerPrefs.SetInt ("Ganada3", 3);
-				PlayerPrefs.SetInt("Carta03", 1);
+				PlayerPrefs.SetInt("Carta3", 1);
 				break;
 			case 4:
 				Carta3.GetComponent<Image> ().sprite = CartasChicas [4];
 				PlayerPrefs.SetInt ("DarVuelta3", 1);
 				PlayerPrefs.SetInt ("Ganada3", 4);
-				PlayerPrefs.SetInt("Carta04", 1);
+				PlayerPrefs.SetInt("Carta4", 1);
 				break;
 			case 5:
 				Carta3.GetComponent<Image> ().sprite = CartasChicas [5];
 				PlayerPrefs.SetInt ("DarVuelta3", 1);
 				PlayerPrefs.SetInt ("Ganada3", 5);
-				PlayerPrefs.SetInt("Carta05", 1);
+				PlayerPrefs.SetInt("Carta5", 1);
 				break;
 			case 6:
 				Carta3.GetComponent<Image> ().sprite = CartasChicas [6];
 				PlayerPrefs.SetInt ("DarVuelta3", 1);
 				PlayerPrefs.SetInt ("Ganada3", 6);
-				PlayerPrefs.SetInt("Carta06", 1);
+				PlayerPrefs.SetInt("Carta6", 1);
 				break;
 			case 7:
 				Carta3.GetComponent<Image> ().sprite = CartasChicas [7];
 				PlayerPrefs.SetInt ("DarVuelta3", 1);
 				PlayerPrefs.SetInt ("Ganada3", 7);
-				PlayerPrefs.SetInt("Carta07", 1);
+				PlayerPrefs.SetInt("Carta7", 1);
 				break;
 			case 8:
 				Carta3.GetComponent<Image> ().sprite = CartasChicas [8];
 				PlayerPrefs.SetInt ("DarVuelta3", 1);
 				PlayerPrefs.SetInt ("Ganada3", 8);
-				PlayerPrefs.SetInt("Carta08", 1);
+				PlayerPrefs.SetInt("Carta8", 1);
 				break;
 			case 9:
 				Carta3.GetComponent<Image> ().sprite = CartasChicas [9];
 				PlayerPrefs.SetInt ("DarVuelta3", 1);
 				PlayerPrefs.SetInt ("Ganada3", 9);
-				PlayerPrefs.SetInt("Carta09", 1);
+				PlayerPrefs.SetInt("Carta9", 1);
 				break;
 			case 10:
 				Carta3.GetComponent<Image> ().sprite = CartasChicas [10];
