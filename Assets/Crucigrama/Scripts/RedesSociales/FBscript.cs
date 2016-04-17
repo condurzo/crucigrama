@@ -118,6 +118,8 @@ public class FBscript : MonoBehaviour{
 			Debug.Log ("IDFACE: " + idFB);
 			Parser.instance.ObtenerIDCorutine ();
 			Parser.instance.RegistrarUsuario (idFB, UserName.text, mail);
+			string idTemp = PlayerPrefs.GetString ("IdPlayer");
+			Parser.instance.ObtenerProgreso (idTemp);
 			BajarCartar ();
         }
         else {

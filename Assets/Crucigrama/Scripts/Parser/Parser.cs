@@ -37,7 +37,7 @@ public class Parser : MonoBehaviour {
 
 	void Update(){
 		if(Input.GetKeyDown(KeyCode.A)){
-			ObtenerProgreso("53");
+			//ObtenerProgreso("53");
 		}
 	}
 
@@ -196,7 +196,7 @@ public class Parser : MonoBehaviour {
 		JsonData jsonProgreso = JsonMapper.ToObject (txtEstJug);
 		for(int i=0;i<jsonProgreso["cartas"].Count;i++){
 			PlayerPrefs.SetString("Carta"+jsonProgreso["cartas"][i]["id_carta"].ToString(),jsonProgreso["cartas"][i]["asignada"].ToString());
-			Debug.Log("Carta"+jsonProgreso["cartas"][i]["id_carta"].ToString()+"________"+jsonProgreso["cartas"][i]["asignada"].ToString());
+			//Debug.Log("Carta"+jsonProgreso["cartas"][i]["id_carta"].ToString()+"________"+jsonProgreso["cartas"][i]["asignada"].ToString());
 		}
 		for(int i=0;i<jsonProgreso["crucigramas"].Count;i++){
 			PlayerPrefs.SetString("Crucigrama"+jsonProgreso["crucigramas"][i]["idcrucigrama"].ToString(),jsonProgreso["crucigramas"][i]["resuelto"].ToString());

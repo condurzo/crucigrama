@@ -99,76 +99,101 @@ public class CartasManager : MonoBehaviour {
 	}
 
 	void Start(){
-		
+		Debug.Log("CartaPref1: "+ PlayerPrefs.GetString("Carta1"));
+		Debug.Log("CartaPref2: "+ PlayerPrefs.GetString("Carta2"));
+		Debug.Log("CartaPref3: "+ PlayerPrefs.GetString("Carta3"));
+		Debug.Log("CartaPref4: "+ PlayerPrefs.GetString("Carta4"));
+		Debug.Log("CartaPref5: "+ PlayerPrefs.GetString("Carta5"));
+		Debug.Log("CartaPref6: "+ PlayerPrefs.GetString("Carta6"));
+		Debug.Log("CartaPref7: "+ PlayerPrefs.GetString("Carta7"));
+		Debug.Log("CartaPref8: "+ PlayerPrefs.GetString("Carta8"));	
+		Debug.Log("CartaPref9: "+ PlayerPrefs.GetString("Carta9"));
+		Debug.Log("CartaPref10: "+ PlayerPrefs.GetString("Carta10"));
+		Debug.Log("CartaPref11: "+ PlayerPrefs.GetString("Carta11"));
+		Debug.Log("CartaPref12: "+ PlayerPrefs.GetString("Carta12"));
+		Debug.Log("CartaPref13: "+ PlayerPrefs.GetString("Carta13"));
+		Debug.Log("CartaPref14: "+ PlayerPrefs.GetString("Carta14"));
+		Debug.Log("CartaPref15: "+ PlayerPrefs.GetString("Carta15"));
+		Debug.Log("CartaPref16: "+ PlayerPrefs.GetString("Carta16"));
+		Debug.Log("CartaPref17: "+ PlayerPrefs.GetString("Carta17"));
+		Debug.Log("CartaPref18: "+ PlayerPrefs.GetString("Carta18"));
+		Debug.Log("CartaPref19: "+ PlayerPrefs.GetString("Carta19"));
+		Debug.Log("CartaPref20: "+ PlayerPrefs.GetString("Carta20"));
+		Debug.Log("CartaPref21: "+ PlayerPrefs.GetString("Carta21"));
+		Debug.Log("CartaPref22: "+ PlayerPrefs.GetString("Carta22"));
+
+
+
+
 
 		if (PlayerPrefs.GetInt ("MostrarCartaShow") == 1) {
 			CartaShowGanaste.SetActive (true);
 		}
       
-        if (PlayerPrefs.GetInt("Carta22") == 0){
+		if (PlayerPrefs.GetString("Carta22") == "0"){
             _Carta22.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta1") == 0){
+		if (PlayerPrefs.GetString("Carta1") == "0"){
             _Carta01.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta2") == 0){
+		if (PlayerPrefs.GetString("Carta2") == "0"){
             _Carta02.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta3") == 0){
+		if (PlayerPrefs.GetString("Carta3") == "0"){
             _Carta03.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta4") == 0){
+		if (PlayerPrefs.GetString("Carta4") == "0"){
             _Carta04.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta5") == 0){
+		if (PlayerPrefs.GetString("Carta5") == "0"){
             _Carta05.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta6") == 0){
+		if (PlayerPrefs.GetString("Carta6") == "0"){
             _Carta06.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta7") == 0){
+		if (PlayerPrefs.GetString("Carta7") == "0"){
             _Carta07.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta8") == 0){
+		if (PlayerPrefs.GetString("Carta8") == "0"){
             _Carta08.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta9") == 0){
+		if (PlayerPrefs.GetString("Carta9") == "0"){
             _Carta09.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta10") == 0){
+		if (PlayerPrefs.GetString("Carta10") == "0"){
             _Carta10.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta11") == 0){
+		if (PlayerPrefs.GetString("Carta11") == "0"){
             _Carta11.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta12") == 0){
+		if (PlayerPrefs.GetString("Carta12") == "0"){
             _Carta12.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta13") == 0){
+		if (PlayerPrefs.GetString("Carta13") == "0"){
             _Carta13.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta14") == 0){
+		if (PlayerPrefs.GetString("Carta14") == "0"){
             _Carta14.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta15") == 0){
+		if (PlayerPrefs.GetString("Carta15") == "0"){
             _Carta15.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta16") == 0){
+		if (PlayerPrefs.GetString("Carta16") == "0"){
             _Carta16.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta17") == 0){
+		if (PlayerPrefs.GetString("Carta17") == "0"){
             _Carta17.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta18") == 0){
+		if (PlayerPrefs.GetString("Carta18") == "0"){
             _Carta18.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta19") == 0){
+		if (PlayerPrefs.GetString("Carta19") == "0"){
             _Carta19.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta20") == 0){
+		if (PlayerPrefs.GetString("Carta20") == "0"){
             _Carta20.GetComponent<Image>().sprite = CartaDorso;
         }
-        if (PlayerPrefs.GetInt("Carta21") == 0){
+		if (PlayerPrefs.GetString("Carta21") == "0"){
             _Carta21.GetComponent<Image>().sprite = CartaDorso;
         }
 
@@ -177,224 +202,224 @@ public class CartasManager : MonoBehaviour {
 
 	public void SetearCartaGrande(){
 
-		if (PlayerPrefs.GetInt("Carta22") == 1){
+		if (PlayerPrefs.GetString("Carta22") == "1"){
 			_Carta22.GetComponent<Image>().sprite = CartaC22;
 		}
-		if (PlayerPrefs.GetInt("Carta1") == 1){
+		if (PlayerPrefs.GetString("Carta1") == "1"){
 			_Carta01.GetComponent<Image>().sprite = CartaC01;
 		}
-		if (PlayerPrefs.GetInt("Carta2") == 1){
+		if (PlayerPrefs.GetString("Carta2") == "1"){
 			_Carta02.GetComponent<Image>().sprite = CartaC02;
 		}
-		if (PlayerPrefs.GetInt("Carta3") == 1){
+		if (PlayerPrefs.GetString("Carta3") == "1"){
 			_Carta03.GetComponent<Image>().sprite = CartaC03;
 		}
-		if (PlayerPrefs.GetInt("Carta4") == 1){
+		if (PlayerPrefs.GetString("Carta4") == "1"){
 			_Carta04.GetComponent<Image>().sprite = CartaC04;
 		}
-		if (PlayerPrefs.GetInt("Carta5") == 1){
+		if (PlayerPrefs.GetString("Carta5") == "1"){
 			_Carta05.GetComponent<Image>().sprite = CartaC05;
 		}
-		if (PlayerPrefs.GetInt("Carta6") == 1){
+		if (PlayerPrefs.GetString("Carta6") == "1"){
 			_Carta06.GetComponent<Image>().sprite = CartaC06;
 		}
-		if (PlayerPrefs.GetInt("Carta7") == 1){
+		if (PlayerPrefs.GetString("Carta7") == "1"){
 			_Carta07.GetComponent<Image>().sprite = CartaC07;
 		}
-		if (PlayerPrefs.GetInt("Carta8") == 1){
+		if (PlayerPrefs.GetString("Carta8") == "1"){
 			_Carta08.GetComponent<Image>().sprite = CartaC08;
 		}
-		if (PlayerPrefs.GetInt("Carta9") == 1){
+		if (PlayerPrefs.GetString("Carta9") == "1"){
 			_Carta09.GetComponent<Image>().sprite = CartaC09;
 		}
-		if (PlayerPrefs.GetInt("Carta10") == 1){
+		if (PlayerPrefs.GetString("Carta10") == "1"){
 			_Carta10.GetComponent<Image>().sprite = CartaC10;
 		}
-		if (PlayerPrefs.GetInt("Carta11") == 1){
+		if (PlayerPrefs.GetString("Carta11") == "1"){
 			_Carta11.GetComponent<Image>().sprite = CartaC11;
 		}
-		if (PlayerPrefs.GetInt("Carta12") == 1){
+		if (PlayerPrefs.GetString("Carta12") == "1"){
 			_Carta12.GetComponent<Image>().sprite = CartaC12;
 		}
-		if (PlayerPrefs.GetInt("Carta13") == 0){
+		if (PlayerPrefs.GetString("Carta13") == "1"){
 			_Carta13.GetComponent<Image>().sprite = CartaC13;
 		}
-		if (PlayerPrefs.GetInt("Carta14") == 1){
+		if (PlayerPrefs.GetString("Carta14") == "1"){
 			_Carta14.GetComponent<Image>().sprite = CartaC14;
 		}
-		if (PlayerPrefs.GetInt("Carta15") == 1){
+		if (PlayerPrefs.GetString("Carta15") == "1"){
 			_Carta15.GetComponent<Image>().sprite = CartaC15;
 		}
-		if (PlayerPrefs.GetInt("Carta16") == 1){
+		if (PlayerPrefs.GetString("Carta16") == "1"){
 			_Carta16.GetComponent<Image>().sprite = CartaC16;
 		}
-		if (PlayerPrefs.GetInt("Carta17") == 1){
+		if (PlayerPrefs.GetString("Carta17") == "1"){
 			_Carta17.GetComponent<Image>().sprite = CartaC17;
 		}
-		if (PlayerPrefs.GetInt("Carta18") == 1){
+		if (PlayerPrefs.GetString("Carta18") == "1"){
 			_Carta18.GetComponent<Image>().sprite = CartaC18;
 		}
-		if (PlayerPrefs.GetInt("Carta19") == 1){
+		if (PlayerPrefs.GetString("Carta19") == "1"){
 			_Carta19.GetComponent<Image>().sprite = CartaC19;
 		}
-		if (PlayerPrefs.GetInt("Carta20") == 1){
+		if (PlayerPrefs.GetString("Carta20") == "1"){
 			_Carta20.GetComponent<Image>().sprite = CartaC20;
 		}
-		if (PlayerPrefs.GetInt("Carta21") == 1){
+		if (PlayerPrefs.GetString("Carta21") == "1"){
 			_Carta21.GetComponent<Image>().sprite = CartaC21;
 		}
 
 	}
     
     public void CartaGrande22 (){
-        if (PlayerPrefs.GetInt("Carta22") == 1){
+		if (PlayerPrefs.GetString("Carta22") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta22;
 			PlayerPrefs.SetInt ("ShareCarta", 22);
         }
 	}
     public void CartaGrande01(){
-        if (PlayerPrefs.GetInt("Carta1") == 1){
+		if (PlayerPrefs.GetString("Carta1") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta01;
 			PlayerPrefs.SetInt ("ShareCarta", 01);
         }
     }
     public void CartaGrande02(){
-        if (PlayerPrefs.GetInt("Carta2") == 1){
+		if (PlayerPrefs.GetString("Carta2") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta02;
 			PlayerPrefs.SetInt ("ShareCarta", 02);
         }
     }
     public void CartaGrande03(){
-        if (PlayerPrefs.GetInt("Carta3") == 1){
+		if (PlayerPrefs.GetString("Carta3") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta03;
 			PlayerPrefs.SetInt ("ShareCarta", 03);
         }
     }
     public void CartaGrande04(){
-        if (PlayerPrefs.GetInt("Carta4") == 1){
+		if (PlayerPrefs.GetString("Carta4") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta04;
 			PlayerPrefs.SetInt ("ShareCarta", 04);
         }
     }
     public void CartaGrande05(){
-        if (PlayerPrefs.GetInt("Carta5") == 1){
+		if (PlayerPrefs.GetString("Carta5") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta05;
 			PlayerPrefs.SetInt ("ShareCarta", 05);
         }
     }
     public void CartaGrande06(){
-        if (PlayerPrefs.GetInt("Carta6") == 1){
+		if (PlayerPrefs.GetString("Carta6") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta06;
 			PlayerPrefs.SetInt ("ShareCarta", 06);
         }
     }
     public void CartaGrande07(){
-        if (PlayerPrefs.GetInt("Carta7") == 1){
+		if (PlayerPrefs.GetString("Carta7") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta07;
 			PlayerPrefs.SetInt ("ShareCarta", 07);
         }
     }
     public void CartaGrande08(){
-        if (PlayerPrefs.GetInt("Carta8") == 1){
+		if (PlayerPrefs.GetString("Carta8") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta08;
 			PlayerPrefs.SetInt ("ShareCarta", 08);
         }
     }
     public void CartaGrande09(){
-        if (PlayerPrefs.GetInt("Carta9") == 1){
+		if (PlayerPrefs.GetString("Carta9") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta09;
 			PlayerPrefs.SetInt ("ShareCarta", 09);
         }
     }
     public void CartaGrande10(){
-        if (PlayerPrefs.GetInt("Carta10") == 1){
+		if (PlayerPrefs.GetString("Carta10") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta10;
 			PlayerPrefs.SetInt ("ShareCarta", 10);
         }
     }
     public void CartaGrande11(){
-        if (PlayerPrefs.GetInt("Carta11") == 1){
+		if (PlayerPrefs.GetString("Carta11") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta11;
 			PlayerPrefs.SetInt ("ShareCarta", 11);
         }
     }
     public void CartaGrande12(){
-        if (PlayerPrefs.GetInt("Carta12") == 1){
+		if (PlayerPrefs.GetString("Carta12") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta12;
 			PlayerPrefs.SetInt ("ShareCarta", 12);
         }
     }
     public void CartaGrande13(){
-        if (PlayerPrefs.GetInt("Carta13") == 1){
+		if (PlayerPrefs.GetString("Carta13") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta13;
 			PlayerPrefs.SetInt ("ShareCarta", 13);
         }
     }
     public void CartaGrande14(){
-        if (PlayerPrefs.GetInt("Carta14") == 1){
+		if (PlayerPrefs.GetString("Carta14") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta14;
 			PlayerPrefs.SetInt ("ShareCarta", 14);
         }
     }
     public void CartaGrande15(){
-        if (PlayerPrefs.GetInt("Carta15") == 1){
+		if (PlayerPrefs.GetString("Carta15") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta15;
 			PlayerPrefs.SetInt ("ShareCarta", 15);
         }
     }
     public void CartaGrande16(){
-        if (PlayerPrefs.GetInt("Carta16") == 1){
+		if (PlayerPrefs.GetString("Carta16") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta16;
 			PlayerPrefs.SetInt ("ShareCarta", 16);
         }
     }
     public void CartaGrande17(){
-        if (PlayerPrefs.GetInt("Carta17") == 1){
+		if (PlayerPrefs.GetString("Carta17") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta17;
 			PlayerPrefs.SetInt ("ShareCarta", 17);
         }
     }
     public void CartaGrande18(){
-        if (PlayerPrefs.GetInt("Carta18") == 1){
+		if (PlayerPrefs.GetString("Carta18") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta18;
 			PlayerPrefs.SetInt ("ShareCarta", 18);
         }
     }
     public void CartaGrande19(){
-        if (PlayerPrefs.GetInt("Carta19") == 1){
+		if (PlayerPrefs.GetString("Carta19") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta19;
 			PlayerPrefs.SetInt ("ShareCarta", 19);
         }
     }
     public void CartaGrande20(){
-        if (PlayerPrefs.GetInt("Carta20") == 1){
+		if (PlayerPrefs.GetString("Carta20") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta20;
 			PlayerPrefs.SetInt ("ShareCarta", 20);
         }
     }
     public void CartaGrande21(){
-        if (PlayerPrefs.GetInt("Carta21") == 1){
+		if (PlayerPrefs.GetString("Carta21") == "1"){
             CartaShow.SetActive(true);
             CartaGrande.GetComponent<Image>().sprite = Carta21;
 			PlayerPrefs.SetInt ("ShareCarta", 21);
