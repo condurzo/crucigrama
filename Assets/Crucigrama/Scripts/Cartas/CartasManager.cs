@@ -130,70 +130,70 @@ public class CartasManager : MonoBehaviour {
 			CartaShowGanaste.SetActive (true);
 		}
       
-		if (PlayerPrefs.GetString("Carta22") == "0"){
+		if ((PlayerPrefs.GetString("Carta22") == "0")||(PlayerPrefs.GetString("Carta22") == "")){
             _Carta22.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta1") == "0"){
+		if ((PlayerPrefs.GetString("Carta1") == "0")||(PlayerPrefs.GetString("Carta1") == "")){
             _Carta01.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta2") == "0"){
+		if ((PlayerPrefs.GetString("Carta2") == "0")||(PlayerPrefs.GetString("Carta2") == "")){
             _Carta02.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta3") == "0"){
+		if ((PlayerPrefs.GetString("Carta3") == "0")||(PlayerPrefs.GetString("Carta3") == "")){
             _Carta03.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta4") == "0"){
+		if ((PlayerPrefs.GetString("Carta4") == "0")||(PlayerPrefs.GetString("Carta4") == "")){
             _Carta04.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta5") == "0"){
+		if ((PlayerPrefs.GetString("Carta5") == "0")||(PlayerPrefs.GetString("Carta5") == "")){
             _Carta05.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta6") == "0"){
+		if ((PlayerPrefs.GetString("Carta6") == "0")||(PlayerPrefs.GetString("Carta6") == "")){
             _Carta06.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta7") == "0"){
+		if ((PlayerPrefs.GetString("Carta7") == "0")||(PlayerPrefs.GetString("Carta7") == "")){
             _Carta07.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta8") == "0"){
+		if ((PlayerPrefs.GetString("Carta8") == "0")||(PlayerPrefs.GetString("Carta8") == "")){
             _Carta08.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta9") == "0"){
+		if ((PlayerPrefs.GetString("Carta9") == "0")||(PlayerPrefs.GetString("Carta9") == "")){
             _Carta09.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta10") == "0"){
+		if ((PlayerPrefs.GetString("Carta10") == "0")||(PlayerPrefs.GetString("Carta10") == "")){
             _Carta10.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta11") == "0"){
+		if ((PlayerPrefs.GetString("Carta11") == "0")||(PlayerPrefs.GetString("Carta11") == "")){
             _Carta11.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta12") == "0"){
+		if ((PlayerPrefs.GetString("Carta12") == "0")||(PlayerPrefs.GetString("Carta12") == "")){
             _Carta12.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta13") == "0"){
+		if ((PlayerPrefs.GetString("Carta13") == "0")||(PlayerPrefs.GetString("Carta13") == "")){
             _Carta13.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta14") == "0"){
+		if ((PlayerPrefs.GetString("Carta14") == "0")||(PlayerPrefs.GetString("Carta14") == "")){
             _Carta14.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta15") == "0"){
+		if ((PlayerPrefs.GetString("Carta15") == "0")||(PlayerPrefs.GetString("Carta15") == "")){
             _Carta15.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta16") == "0"){
+		if ((PlayerPrefs.GetString("Carta16") == "0")||(PlayerPrefs.GetString("Carta16") == "")){
             _Carta16.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta17") == "0"){
+		if ((PlayerPrefs.GetString("Carta17") == "0")||(PlayerPrefs.GetString("Carta17") == "")){
             _Carta17.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta18") == "0"){
+		if ((PlayerPrefs.GetString("Carta18") == "0")||(PlayerPrefs.GetString("Carta18") == "")){
             _Carta18.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta19") == "0"){
+		if ((PlayerPrefs.GetString("Carta19") == "0")||(PlayerPrefs.GetString("Carta19") == "")){
             _Carta19.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta20") == "0"){
+		if ((PlayerPrefs.GetString("Carta20") == "0")||(PlayerPrefs.GetString("Carta20") == "")){
             _Carta20.GetComponent<Image>().sprite = CartaDorso;
         }
-		if (PlayerPrefs.GetString("Carta21") == "0"){
+		if ((PlayerPrefs.GetString("Carta21") == "0")||(PlayerPrefs.GetString("Carta21") == "")){
             _Carta21.GetComponent<Image>().sprite = CartaDorso;
         }
 

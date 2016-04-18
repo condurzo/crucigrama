@@ -36,7 +36,7 @@ public class GanasteCarta : MonoBehaviour {
 			PlayerPrefs.SetInt ("Reinicie", 0);
 		}
 
-		if (PlayerPrefs.GetString ("c4") == "0") {
+		if ((PlayerPrefs.GetString ("c4") == "a")||(PlayerPrefs.GetString ("c4") == "")||(PlayerPrefs.GetString ("c4") == "0")) {
 			Random1 = UnityEngine.Random.Range (0, 22);
 			Random2 = UnityEngine.Random.Range (0, 22);
 			Random3 = UnityEngine.Random.Range (0, 22);
