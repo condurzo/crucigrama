@@ -45,8 +45,6 @@ public class Managerhome : MonoBehaviour {
 
 	public void cambiarfrase(){
 		index=palabraescribiendo;
-		Debug.Log(index);
-		Debug.Log(frases.Count);
 		frasetext.text = frases [index];
 
 		foreach(Gridcell grid in gridcells){
@@ -55,6 +53,12 @@ public class Managerhome : MonoBehaviour {
 		foreach(int intt in palabrasgrid[index]){
 			gridcells[intt].contenedor.color=coloractivo;
 		}
+	}
+
+	public void CargarRanking(int id){
+		string idreal=Parser.instance.GetCrosswordId(id);
+		string idplayer="53";
+		Parser.instance.GetRanking(idreal,idplayer);
 	}
 
 	public void CargarCruci(int id){
@@ -70,7 +74,6 @@ public class Managerhome : MonoBehaviour {
 			Gridcell grid=crucigramaparent.transform.FindChild("Button ("+i.ToString()+")").gameObject.GetComponent<Gridcell>();
 			gridcells.Add(grid);
 		}
-		Debug.Log("asd");
 		foreach(Gridcell grid in gridcells){
 			grid.Reset();
 			grid.prendido=false;
@@ -119,9 +122,6 @@ public class Managerhome : MonoBehaviour {
 	}
 
 	public void GenerarCruci(){
-		foreach(Palabra st in palabras){
-			Debug.Log(st.palabra);
-		}
 		for(int i=0;i<palabras.Count;i++){
 			Palabra pal=palabras[i];
 			prenderpalabra(pal.coordx,pal.coordy,pal.verhor,pal.palabra.ToUpper(),i);

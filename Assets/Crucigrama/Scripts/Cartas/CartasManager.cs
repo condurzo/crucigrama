@@ -99,28 +99,28 @@ public class CartasManager : MonoBehaviour {
 	}
 
 	void Start(){
-		Debug.Log("CartaPref1: "+ PlayerPrefs.GetString("Carta1"));
-		Debug.Log("CartaPref2: "+ PlayerPrefs.GetString("Carta2"));
-		Debug.Log("CartaPref3: "+ PlayerPrefs.GetString("Carta3"));
-		Debug.Log("CartaPref4: "+ PlayerPrefs.GetString("Carta4"));
-		Debug.Log("CartaPref5: "+ PlayerPrefs.GetString("Carta5"));
-		Debug.Log("CartaPref6: "+ PlayerPrefs.GetString("Carta6"));
-		Debug.Log("CartaPref7: "+ PlayerPrefs.GetString("Carta7"));
-		Debug.Log("CartaPref8: "+ PlayerPrefs.GetString("Carta8"));	
-		Debug.Log("CartaPref9: "+ PlayerPrefs.GetString("Carta9"));
-		Debug.Log("CartaPref10: "+ PlayerPrefs.GetString("Carta10"));
-		Debug.Log("CartaPref11: "+ PlayerPrefs.GetString("Carta11"));
-		Debug.Log("CartaPref12: "+ PlayerPrefs.GetString("Carta12"));
-		Debug.Log("CartaPref13: "+ PlayerPrefs.GetString("Carta13"));
-		Debug.Log("CartaPref14: "+ PlayerPrefs.GetString("Carta14"));
-		Debug.Log("CartaPref15: "+ PlayerPrefs.GetString("Carta15"));
-		Debug.Log("CartaPref16: "+ PlayerPrefs.GetString("Carta16"));
-		Debug.Log("CartaPref17: "+ PlayerPrefs.GetString("Carta17"));
-		Debug.Log("CartaPref18: "+ PlayerPrefs.GetString("Carta18"));
-		Debug.Log("CartaPref19: "+ PlayerPrefs.GetString("Carta19"));
-		Debug.Log("CartaPref20: "+ PlayerPrefs.GetString("Carta20"));
-		Debug.Log("CartaPref21: "+ PlayerPrefs.GetString("Carta21"));
-		Debug.Log("CartaPref22: "+ PlayerPrefs.GetString("Carta22"));
+//		Debug.Log("CartaPref1: "+ PlayerPrefs.GetString("Carta1"));
+//		Debug.Log("CartaPref2: "+ PlayerPrefs.GetString("Carta2"));
+//		Debug.Log("CartaPref3: "+ PlayerPrefs.GetString("Carta3"));
+//		Debug.Log("CartaPref4: "+ PlayerPrefs.GetString("Carta4"));
+//		Debug.Log("CartaPref5: "+ PlayerPrefs.GetString("Carta5"));
+//		Debug.Log("CartaPref6: "+ PlayerPrefs.GetString("Carta6"));
+//		Debug.Log("CartaPref7: "+ PlayerPrefs.GetString("Carta7"));
+//		Debug.Log("CartaPref8: "+ PlayerPrefs.GetString("Carta8"));	
+//		Debug.Log("CartaPref9: "+ PlayerPrefs.GetString("Carta9"));
+//		Debug.Log("CartaPref10: "+ PlayerPrefs.GetString("Carta10"));
+//		Debug.Log("CartaPref11: "+ PlayerPrefs.GetString("Carta11"));
+//		Debug.Log("CartaPref12: "+ PlayerPrefs.GetString("Carta12"));
+//		Debug.Log("CartaPref13: "+ PlayerPrefs.GetString("Carta13"));
+//		Debug.Log("CartaPref14: "+ PlayerPrefs.GetString("Carta14"));
+//		Debug.Log("CartaPref15: "+ PlayerPrefs.GetString("Carta15"));
+//		Debug.Log("CartaPref16: "+ PlayerPrefs.GetString("Carta16"));
+//		Debug.Log("CartaPref17: "+ PlayerPrefs.GetString("Carta17"));
+//		Debug.Log("CartaPref18: "+ PlayerPrefs.GetString("Carta18"));
+//		Debug.Log("CartaPref19: "+ PlayerPrefs.GetString("Carta19"));
+//		Debug.Log("CartaPref20: "+ PlayerPrefs.GetString("Carta20"));
+//		Debug.Log("CartaPref21: "+ PlayerPrefs.GetString("Carta21"));
+//		Debug.Log("CartaPref22: "+ PlayerPrefs.GetString("Carta22"));
 
 
 

@@ -35,7 +35,6 @@ public class SplashDownloader : MonoBehaviour {
 
 	void InicioShow(){
 		SplashImagen.gameObject.SetActive(true);
-		Debug.Log (Time.time);
 		if (index < ListaSplash.Count) {
 			if (ListaSplash [index].estado == "1") {
 				SplashImagen.sprite = sprites [index];

@@ -25,6 +25,7 @@ public class CrucigramaShower : MonoBehaviour {
 
 	public void Resolver(){
 		Managerhome.instance.CargarCruci (id-1);
+		Managerhome.instance.CargarRanking(id-1);
 	}
 
 	public void Prender(){
@@ -34,7 +35,6 @@ public class CrucigramaShower : MonoBehaviour {
 
 	IEnumerator CargarImagen() {
 		WWW www = new WWW(thumburl);
-		Debug.Log(thumburl);
 		// Wait for download to complete
 		yield return www;
 		Texture2D textura=www.texture;

@@ -16,6 +16,7 @@ public class Parser : MonoBehaviour {
 	public static EstadoJugador playerstate;
 	public static PremiosDisponibles Disponibles;
 	public string IdTemp;
+	public List<Jugador> jugadoresranking=new List<Jugador>();
 	/*/
 	ORDEN
 	0-Splash
@@ -37,7 +38,12 @@ public class Parser : MonoBehaviour {
 
 	void Update(){
 		if(Input.GetKeyDown(KeyCode.A)){
-			//ObtenerProgreso("53");
+			StartCoroutine(Rankingcorroutine("15","53"));
+		}
+		if(Input.GetKeyDown(KeyCode.S)){
+			for(int i=0;i<jugadoresranking.Count;i++){
+				Debug.Log(jugadoresranking[i].nombre);
+			}
 		}
 	}
 
@@ -125,6 +131,10 @@ public class Parser : MonoBehaviour {
 		}
 
 		return versionactual;
+	}
+
+	public string GetCrosswordId(int num){
+		return jsondatas[1] ["crucigramas"][num]["id_crucigrama"].ToString();
 	}
 
 	public Crucigrama GetCrossword(int num){
@@ -242,32 +252,34 @@ public class Parser : MonoBehaviour {
 		PlayerPrefs.SetString ("premiosDisponiblesColeccion",Disponibles.PremiosDispColeccion);
 		PlayerPrefs.SetString ("premiosDisponiblesCrcigramas",Disponibles.PremiosDispCrucigramas);
 	}
+	public void GetRanking(string idcruci,string idplayer){
+		StartCoroutine(Rankingcorroutine(idcruci,idplayer));
+	}
 
-	public List<Jugador> Ranking(string idcrucigrama,string idjugador){
+	IEnumerator Rankingcorroutine(string idcrucigrama,string idjugador){
+		Debug.Log("CORroutine ranking");
 		string url = "http://www.malditosnerds.com/crucigramas/front/ranking_cruci2.php?idcruci="+idcrucigrama+"&idjugador="+idjugador;
+		Debug.Log(url);
 		WWW www = new WWW (url);
-	//yield return www;
+		yield return www;
 		string txtjson=www.text;
-		int first = txtjson.IndexOf ('>');
-		int last=	txtjson.LastIndexOf('<');
-		string sub = "";
-		if ((first >= 0) && (last >= 0)) {
-			sub = txtjson.Substring (first + 1, (last - first) - 1);
-		} else {
-			sub=txtjson;
-		}
-		JsonData jsondatanew = JsonMapper.ToObject (sub);
+		Debug.Log(www.text);
+		JsonData jsondatanew = JsonMapper.ToObject (txtjson);
 
-		List<Jugador> jugadoresrank=new List<Jugador>();
+		jugadoresranking.Clear();
+		Debug.Log("CANTRANK: "+jsondatanew["rankings"].Count.ToString());
 		for(int i=0;i<jsondatanew["rankings"].Count;i++){
 			Jugador jug =new Jugador();
 			jug.puesto=jsondatanew["rankings"][i]["puesto"].ToString();
 			jug.nombre=jsondatanew["rankings"][i]["nombre"].ToString();
 			jug.fecha=jsondatanew["rankings"][i]["fecha_resuelto"].ToString();
 			jug.id=jsondatanew["rankings"][i]["id_jugador"].ToString();
-			jugadoresrank.Add(jug);
+			jugadoresranking.Add(jug);
 		}
-		return jugadoresrank;
+		Debug.Log("CANTIDAD: "+jugadoresranking.Count.ToString()); 
+		for(int i=0;i<jugadoresranking.Count;i++){
+			Debug.Log(jugadoresranking[i].nombre);
+		}
 	}
 
 	public List<Crucigrama> GetAllCrosswords(){
