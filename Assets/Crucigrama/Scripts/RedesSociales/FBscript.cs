@@ -20,14 +20,6 @@ public class FBscript : MonoBehaviour{
 
     void Start(){
         FB.Init(SetInit, OnHideUnity);
-		if ((PlayerPrefs.GetInt ("Registrado") == 1)) {
-			if ((PlayerPrefs.GetString ("c4") == "a")||(PlayerPrefs.GetString ("c4") == "")) {
-				BajarCartar ();
-			}
-		} else {
-			LoginPopup.SetActive (true);
-		}
-
     }
 
 	public void ExitApp(){
@@ -77,6 +69,7 @@ public class FBscript : MonoBehaviour{
 			PlayerPrefs.SetString ("c4","a");
 			PlayerPrefs.SetInt ("Registrado", 0);
 			PlayerPrefs.SetInt ("SetearCosas", 0);
+			PlayerPrefs.SetInt("BajoCartas", 0);
 			Application.LoadLevel ("PreSplash");
 			Debug.Log ("Cerre Sesion");
 		}
@@ -191,6 +184,17 @@ public class FBscript : MonoBehaviour{
 	#if UNITY_ANDROID
 
 	void Update(){
+		if ((PlayerPrefs.GetInt ("Registrado") == 1)) {
+			if ((PlayerPrefs.GetString ("c4") == "a")||(PlayerPrefs.GetString ("c4") == "")||(PlayerPrefs.GetString ("c4") == "0")) {
+				if (PlayerPrefs.GetInt("BajoCartas") == 0) {
+					BajarCartar ();
+					PlayerPrefs.SetInt("BajoCartas", 1);
+				}
+			}
+		} else {
+			LoginPopup.SetActive (true);
+		}
+
 
 //		Debug.Log(PlayerPrefs.GetString ("IdFacebook"));
 //		Debug.Log(PlayerPrefs.GetString ("IdPlayer"));
